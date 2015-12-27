@@ -1,0 +1,26 @@
+Follwer:
+  local_hcl_file:
+    OS_name (Windows, Linux, Mac, Android)
+    Browser_name (Chrome, FF, Safri, IE)
+    Dada_Base_path
+    Application_name
+    User_details:
+      User_name
+      User_password
+    Tshark_parameters:
+      Tshark_path
+      Network_card_interface
+      ...
+    
+    
+  global_hcl_file:
+    Run_details:
+      function_name:
+      function_parameters:
+        1
+        2
+        ...
+    Tshark_parameters:
+      filter
+      file_format
+    
