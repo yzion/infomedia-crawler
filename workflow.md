@@ -6,7 +6,7 @@
 # Push changes to github
   1. Update all the relevant changes in `changelog.txt` (See the file for structure)  
     1.1 Use git diff to easily view changes
-  2. Use `git add filenames...` to add all modified and new files. (Also add TODO, changelog itself, temp etc...)
+  2. Use `git add filenames...` to add all modified and new files. (Also add TODO, changelog itself, etc...)
   3. Use `git status` to see if you missed anything
   4. Commit the changes - `git commit -F changelog.txt`
   5. Push changes to remote - `git push  <REMOTENAME> <LOCALBRANCHNAME>:<REMOTEBRANCHNAME>`  
