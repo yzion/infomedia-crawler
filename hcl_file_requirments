@@ -1,4 +1,4 @@
-Follwer:
+Follwer_side:
   local_hcl_file:
     OS_name (Windows, Linux, Mac, Android)
     Browser_name (Chrome, FF, Safri, IE)
@@ -24,3 +24,22 @@ Follwer:
       filter
       file_format
     
+Twitter:
+  global_hcl_file:
+    OS_name (Windows, Linux, Mac, Android)
+    Browser_name (Chrome, FF, Safri, IE)
+    Dada_Base_path
+    Application_name
+    User_details:
+      User_name
+      User_password
+    Tshark_parameters:
+      Tshark_path
+      Network_card_interface
+      ...
+    Run_details_side:
+      function_name:
+      function_parameters:
+       1
+       2
+       ...
