@@ -1,0 +1,7 @@
+27.12.15:
+  micah:
+    + Separate the hardcode from the current code into txt file.
+      + Target: 3 txt file for hcl.
+    + Create an API to make the data in the txt file accessible
+    + Adjust the crawler to the new API system
+      + Target: make it easy to change the code
