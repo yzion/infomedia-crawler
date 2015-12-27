@@ -24,7 +24,12 @@ Follwer_side:
       filter
       file_format
     
-Twitter:
+    
+Twitter_side:
+  local_hcl_file:
+  ...
+  
+  
   global_hcl_file:
     OS_name (Windows, Linux, Mac, Android)
     Browser_name (Chrome, FF, Safri, IE)
@@ -37,7 +42,7 @@ Twitter:
       Tshark_path
       Network_card_interface
       ...
-    Run_details_side:
+    Run_details:
       function_name:
       function_parameters:
        1
