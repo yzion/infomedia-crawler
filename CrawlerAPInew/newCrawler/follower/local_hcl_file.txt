@@ -1,0 +1,25 @@
+/*
+	CAN Be : windows , OSx , Linux , Android
+*/
+Os_name = "windows"
+
+/*
+	CAN Be : chrome , ff , ie , firefox , Safri
+*/
+Browser_name = "chrome"
+DB_path = "c:\\twitterdb"
+Aplication_name = "twitter"
+
+//USER DETAILS
+
+User_details = {
+	userName = "jon.m.inbox@gmail.com"
+	password = "Info.Media"
+}
+
+Tshark_parameters = {
+	Tshark_path = "C:\\Program Files\\Wireshark\\tshark.exe"
+	NC_interface = "-i"
+	NC_interface_data = "1"
+	write_file_type = "-w"
+}

@@ -1,0 +1,56 @@
+/*
+	CAN Be : windows , OSx , Linux , Android
+*/
+Os_name = "OSx"
+/*
+	CAN Be : chrome , ff , ie , firefox , Safri
+*/
+Browser_name = "chrome"
+DB_path = "c:\twitterdb"
+Aplication_name = "twitter"
+
+
+User_details = {
+	userName0 = "jon.m.inbox@gmail.com"
+	password0 = "Info.Medasdfia"
+	userName1 = "jon.m.asas@gmail.com"
+	password1 = "Info.Medqqqqqqqia"
+	userName2 = "jon.m.cccc@gmail.com"
+	password2 = "Info.Medaaia"
+	userName3 = "jon.m.inqqqqqqqqqbox@gmail.com"
+	password3 = "Info.Mediwwwwwwwwwwa"
+	userName4 = "jon.m.inbeeeeeeeeeeox@gmail.com"
+	password4 = "Info.Medieeeeeeeeeea"
+	userName5 = "jon.m.inbrrrrrrrrrox@gmail.com"
+	password5 = "Info.Medtttttttttttttia"
+}
+
+Tshark_parameters = {
+/*
+	CAN BE: /usr/bin/tshark - LINUX ,  C:\\Program Files\\Wireshark\\tshark.exe - WINDOWS
+*/
+	Tshark_path = "C:\\Program Files\\Wireshark\\tshark.exe"
+	file_command = "-F"
+	file_type = "pcap"
+	filter_command = "-f"
+	filter_type = "tcp port 443"
+	NC_interface = "-i"
+	NC_interface_data = "1"
+	write_file_type = "-w"
+	file_format = "os\t fileName\t time\t date"
+}
+
+Run_details = {
+	/*
+		CAN Be : text , pic , text&pic 
+	*/
+	function_name ="text"
+	function_parameters ={
+		param0 = "text"
+		param1 = "pic"
+		param2 = "text&pic"
+		param3 = "pharam3"
+	}
+}
+
+

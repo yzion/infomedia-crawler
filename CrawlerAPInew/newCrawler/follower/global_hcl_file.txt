@@ -1,0 +1,19 @@
+Run_details = {
+	/*
+		CAN Be : text , pic , text&pic 
+	*/
+	function_name ="text"
+	function_parameters ={
+		runTimeMinutes = 3300
+		TestRunTimeSeconds = 72000
+		param2 = "pharam2"
+		param3 = "pharam3"
+	}
+	Tshark_parameters = {
+		file_command = "-f"
+		file_type = "pcap"
+		filter_command = "-f"
+		filter_type = "tcp port 443"
+		file_format = "os\t fileName\t time\t date"
+	}  
+}
