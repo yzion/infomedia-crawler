@@ -8,7 +8,7 @@ if __name__ == '__main__':
 '''
 
 import os
-from os.path import join 
+from os.path import join
 
 import hcl
 
@@ -17,19 +17,20 @@ import hcl
 '''
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.getcwd()
-followersFolder = BASE_DIR+"\\newCrawler\\follower"
+#followersFolder = BASE_DIR+"\\newCrawler\\follower"
+followersFolder = BASE_DIR+"/newCrawler/follower"
 
-#open local file 
+#open local file
 with open(join(followersFolder,"local_hcl_file.txt"),'r') as follower_local_hcl_file:
     follower_local_hcl_JsonFile = hcl.load(follower_local_hcl_file)
-#open global file  
+#open global file
 with open(join(followersFolder,"global_hcl_file.txt"),'r') as follower_global_hcl_file:
     follower_global_hcl_JsonFile = hcl.load(follower_global_hcl_file)
    # str = "runTimeMinutes"
   # print follower_global_hcl_JsonFile["Run_details"]["function_parameters"].pop(str)
 '''
          API area
-'''  
+'''
 '''     LOCAL     API         '''
 def getOSName():
     return  follower_local_hcl_JsonFile["Os_name"]
@@ -47,7 +48,7 @@ def getUserDetails():
     return  getUserName() , getUserPassword()
 
 def getUserName():
-    return  follower_local_hcl_JsonFile["User_details"]["userName"] 
+    return  follower_local_hcl_JsonFile["User_details"]["userName"]
 def getUserPassword():
     return   follower_local_hcl_JsonFile["User_details"]["password"]
 

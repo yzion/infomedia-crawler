@@ -1,5 +1,20 @@
+" 0.03 "
+CrawlerAPInew:
+  ImportFiles:
+    FollowerImports:
+      change path to work in ubuntu
+
+  testMain:
+    change import to "from ImportFiles import FollowerImports as FI"
+
+  cleanup_pyc_files:
+    Added function to delete "pyc" files
+
+  dependencies:
+    Added "selenium"
+
 " 0.02 "
-First upload of new crawler API project 
+First upload of new crawler API project
 
 
 " 0.01 "

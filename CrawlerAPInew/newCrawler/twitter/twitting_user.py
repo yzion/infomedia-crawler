@@ -29,10 +29,10 @@ def end_runing_func(tshark_proc,driver,tw):
     for i in temp:
         tw.log.removeHandler(i)
         i.flush()
-        i.close()       
+        i.close()
 
 """
-Start and return Tshark process 
+Start and return Tshark process
 """
 def createPcap(filename):
     if platform.system() == 'Windows':
@@ -73,7 +73,7 @@ def create_log_name(browser_str, root_path):
 
 
 """
-initialize and return log file, driver and tshark process 
+initialize and return log file, driver and tshark process
 """
 def start_driver_and_pcap():
     browser = 'chrome'
@@ -99,14 +99,14 @@ user_name = twitter user name
 password= twitter password
 num_of_tweet = total number of tweets
 time_between_tweets = time between an individual Tweets (in seconds)
-num_of_set = after this number of tweets will be a break of "break_time" seconds. 
+num_of_set = after this number of tweets will be a break of "break_time" seconds.
 break_time = time to wait between set of tweets. by default "break_time"=60
 """
 def tweet_only_text(user_name, password, num_of_tweet, time_between_tweets, num_of_set, break_time = 60):
     log_str, driver, tshark_proc = start_driver_and_pcap()
 
     try:
-                
+
         # login to Twitter
         tw = Twitter_scrapper(driver, log_str + '.tsv')
         if not tw.login(user_name, password):
@@ -124,17 +124,17 @@ def tweet_only_text(user_name, password, num_of_tweet, time_between_tweets, num_
 
             if not tw.make_tweet(twttext + '\n'):
                 return
-            
+
             time.sleep(time_between_tweets)
             if tweet_counter % num_of_set == 0:
-                time.sleep(break_time - time_between_tweets)        
+                time.sleep(break_time - time_between_tweets)
 
     finally:    # do cleaning anyway
         end_runing_func(tshark_proc,driver,tw)
 
 """
 !!! this function unused for now
-Get list of pictures folders paths and run "tweet_only_pic" for each path 
+Get list of pictures folders paths and run "tweet_only_pic" for each path
 """
 def tweet_set_of_pic_by_path(username,password,path_arr, num_of_tweet, time_between_tweets, num_of_set, break_time):
     for op in path_arr:
@@ -144,7 +144,7 @@ def tweet_set_of_pic_by_path(username,password,path_arr, num_of_tweet, time_betw
 Tweets only pictures
 num_of_tweet = total number of tweets
 time_between_tweets = time between an individual Tweets (in seconds)
-num_of_set = after this number of tweets will be a break of "break_time" seconds. 
+num_of_set = after this number of tweets will be a break of "break_time" seconds.
 break_time = time to wait between set of tweets. by default "break_time"=60
 pix_path = the path into the pictures folder. by default "pix_path"= r'D:\TwitterDB\diff_pic'
 """
@@ -171,7 +171,7 @@ def tweet_only_pic(user_name, password, num_of_tweet, time_between_tweets, num_o
             pic_cnt +=1
             if pic_cnt >= len(pix_names):
                 pic_cnt = 0;
-            
+
             if not tw.make_tweet('',pic):
                 return
             print pic
@@ -179,8 +179,8 @@ def tweet_only_pic(user_name, password, num_of_tweet, time_between_tweets, num_o
                 break
             time.sleep(time_between_tweets)
             if tweet_counter % num_of_set == 0:
-                time.sleep(break_time - time_between_tweets)   
-            
+                time.sleep(break_time - time_between_tweets)
+
 
     finally:    # do cleaning anyway
         end_runing_func(tshark_proc,driver,tw)
@@ -191,14 +191,14 @@ user_name = twitter user name
 password= twitter password
 num_of_tweet = total number of tweets
 time_between_tweets = time between an individual Tweets (in seconds)
-num_of_set = after this number of tweets will be a break of "break_time" seconds. 
+num_of_set = after this number of tweets will be a break of "break_time" seconds.
 break_time = time to wait between set of tweets.
 pix_path = the path into the pictures folder. by default "pix_path"= r'D:\TwitterDB\diff_pic'
-"""    
+"""
 def tweet_pic_with_text(user_name, password, num_of_tweet, time_between_tweets, num_of_set, break_time, pix_path):
     log_str, driver, tshark_proc = start_driver_and_pcap()
-    
-    
+
+
     try:
         # login to Twitter
         tw = Twitter_scrapper(driver, log_str + '.tsv')
@@ -210,14 +210,14 @@ def tweet_pic_with_text(user_name, password, num_of_tweet, time_between_tweets, 
         for filename in os.listdir(pix_path):
             if filename.lower().endswith('.jpg') or filename.lower().endswith('.png'):
                 pix_names.append(pix_path + os.sep + filename)
-                
+
         # first tweet with user name
         dd = datetime.datetime.now()
         twttext = dd.strftime('Now is %Y-%m-%d %H:%M:%S +%f')
         pic = pix_names[0]
         if not tw.make_tweet(user_name +' ' + twttext + '\n', pic):
                 return
-        time.sleep(time_between_tweets)        
+        time.sleep(time_between_tweets)
         pic_cnt = 0
         for tweet_counter in range(0,num_of_tweet):
             #picture part
@@ -237,8 +237,8 @@ def tweet_pic_with_text(user_name, password, num_of_tweet, time_between_tweets, 
             time.sleep(time_between_tweets)
             if tweet_counter % num_of_set == 0:
                 time.sleep(break_time - time_between_tweets)
-    
-    
+
+
     finally:    # do cleaning anyway
         end_runing_func(tshark_proc,driver,tw)
 
@@ -248,11 +248,11 @@ def tweet_pic_with_text(user_name, password, num_of_tweet, time_between_tweets, 
     tweet any tweets(only random pic/only random text/random text+random pic)
     user_name = twitter user name
     password = twitter password
-    path_list = 
-    num_of_tweet = total number of tweets. by default "num_of_tweet" = 3000. 
+    path_list =
+    num_of_tweet = total number of tweets. by default "num_of_tweet" = 3000.
     min_time_between_tweets = min time between an individual Tweets (in seconds) by default == 180
     max_time_between_tweets = max time between an individual Tweets (in seconds) by default == 300
-     
+
 """
 
 def random_tweet(user_name, password, path_list, num_of_tweet ,min_time_between_tweets , max_time_between_tweets):
@@ -263,10 +263,10 @@ def random_tweet(user_name, password, path_list, num_of_tweet ,min_time_between_
         if not tw.login(user_name, password):
             print 'Logging to Tweeter account failed'
             return
-        # get list of photos 
+        # get list of photos
         pix_names = []
         paths(path_list,pix_names)
-            
+
         # first tweet with user name
         time_between_tweets = random.randint(min_time_between_tweets,max_time_between_tweets)
         tw.log.info ('time between tweets: %i'%(time_between_tweets), extra=tw.log_extra)
@@ -291,47 +291,47 @@ def random_tweet(user_name, password, path_list, num_of_tweet ,min_time_between_
                 if not tw.make_tweet(twttext + '\n'):
                     return
             elif which_tweet ==2: #only pic
-                pic = pix_names[pic_cnt]                
+                pic = pix_names[pic_cnt]
                 if not tw.make_tweet('',pic):
                     return
                 print pic
-                
+
             elif which_tweet == 3:  #pic+text
                 #picture part
                 pic = pix_names[pic_cnt]
                 # text part
                 dd = datetime.datetime.now()
                 twttext = dd.strftime('Now is %Y-%m-%d %H:%M:%S +%f')
-    
+
                 if not tw.make_tweet(twttext + '\n',pic):
                     return
                 print pic
-                
+
             if Twitter_scrapper.tweets_number >= 10:
                 break
             time.sleep(time_between_tweets)
-    
- 
+
+
     finally:    # do cleaning anyway
-        end_runing_func(tshark_proc,driver,tw)         
+        end_runing_func(tshark_proc,driver,tw)
 
 def paths(path_list,pix_names):
     for i in range(3):
         pix_path = path_list[i]
-        for filename in os.listdir(pix_path):             
+        for filename in os.listdir(pix_path):
             if filename.lower().endswith('.jpg') or filename.lower().endswith('.png'):
                 pix_names.append(pix_path + os.sep + filename)
 
 
 if __name__ == "__main__":
-    
+
     """ path list for pictures folders """
     path_list = [r'D:\TwitterDB\diff_pic\200 200', r'D:\TwitterDB\diff_pic\1000 1000', r'D:\TwitterDB\diff_pic\2000 2000']
-    
+
     """ list of users for testing """
     #twitter_users = ['someonemeso','someonemeso']
     #twitter_passwords = ['q1w2e3r4','q1w2e3r4']
-    
+
     """ list of useres for the crawler """
     twitter_users = ['mamecyber','mimacyber','moamacyber','tamacyberw','tamacyberg','timacyberg','timacyberw','tomacyberw','temacyberw','kemacyberw','kamacyberw','tweetComp@walla.co.il', 'mamegcyber', 'sib.kroll@gmail.com','momacyberg@walla.com','kimacyber@walla.com','komacyber@walla.co.il','ramacyber@walla.com','rimacyber@walla.com','rimacyberg@walla.com','remacyber@walla.com','romacyber@walla.com','samacyber@walla.com','simacyber@walla.com']
     twitter_passwords = ['ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','Info1Media', 'ASDFGH00', '1234qwer','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00']
@@ -342,29 +342,29 @@ if __name__ == "__main__":
     time_between_tweets = 180 #time in seconds between tweets
     num_of_set = 100
     break_time = 300
-    
+
     # vlues for random tweets
     min_time_between_tweets = 180
     max_time_between_tweets = 300
 
-    
+
     """ run for tweet_only_text """
-#   i= 0 
-#   while i < (len(twitter_users)*4):
-#       username = twitter_users[i % len(twitter_users)]
-#       password = twitter_passwords[i % len(twitter_users)]
-#       tweet_only_text(username,password,num_of_tweet,time_between_tweets,num_of_set,break_time)
-#       i += 1 
-#        if(Twitter_scrapper.tweets_number >= num_of_all_tweets):
-#               Twitter_scrapper.tweets_number = 0
-#               break  
+    i= 0
+    while i < (len(twitter_users)*4):
+        username = twitter_users[i % len(twitter_users)]
+        password = twitter_passwords[i % len(twitter_users)]
+        tweet_only_text(username,password,num_of_tweet,time_between_tweets,num_of_set,break_time)
+        i += 1
+        if(Twitter_scrapper.tweets_number >= num_of_all_tweets):
+              Twitter_scrapper.tweets_number = 0
+              break
 
 
 
     """ run for tweet_only_pic """
 
 #     i= 0
-#     for pix_path in path_list:        
+#     for pix_path in path_list:
 #         while i < (len(twitter_users)*4):
 #             username = twitter_users[i % len(twitter_users)]
 #             password = twitter_passwords[i % len(twitter_users)]
@@ -374,11 +374,11 @@ if __name__ == "__main__":
 #                 Twitter_scrapper.tweets_number = 0
 #                 break
 #         time.sleep(60)
-    
+
     """ run for tweet_only_pic just on the specific images resolution"""
 
 #     i= 0
-#     pix_path = path_list[2]        
+#     pix_path = path_list[2]
 #     while i < (len(twitter_users)*4):
 #         username = twitter_users[i % len(twitter_users)]
 #         password = twitter_passwords[i % len(twitter_users)]
@@ -390,10 +390,10 @@ if __name__ == "__main__":
 #     time.sleep(60)
 
 
-# 
+#
     """ run for tweet_pic_with_text just on the 2000*2000 images"""
-#     pix_path_2000 = path_list[2]        
-#      
+#     pix_path_2000 = path_list[2]
+#
 #     i=5
 #     while i < (len(twitter_users)*4):
 #         username = twitter_users[i % len(twitter_users)]
@@ -403,13 +403,11 @@ if __name__ == "__main__":
 #         if(Twitter_scrapper.tweets_number >= num_of_all_tweets):
 #             Twitter_scrapper.tweets_number = 0
 #             break
-#     time.sleep(60) 
-    
-    
+#     time.sleep(60)
+
+
     """ run for random_tweet"""
- 
+
 
 #     subprocess.call('C:\port_closer\cports.exe /close * * * * chrome.exe', shell=True)
 #     subprocess.call('cports.exe /close * * * * chrome.exe' ,shell = True)
-
-           
