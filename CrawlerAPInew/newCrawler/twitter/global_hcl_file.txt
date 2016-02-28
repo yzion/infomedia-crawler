@@ -1,3 +1,88 @@
+
+Log_settings = {
+	/*
+		CAN BE : D:\TwitterDB\twitter_log.tsv,
+	*/
+	logName = "D:\TwitterDB\twitter_log.tsv"
+	
+}
+Pictures_path = {
+	P200 = "D:\TwitterDB\diff_pic\200 200"
+	P1000 = "D:\TwitterDB\diff_pic\1000 1000"
+	P2000 = "D:\TwitterDB\diff_pic\2000 2000"
+}
+User_details = {
+	userName0 = "mamecyber"
+	password0 = "ASDFGH00"
+	userName1 = "mimacyber"
+	password1 = "ASDFGH00"
+	userName2 = "moamacyber"
+	password2 = "ASDFGH00"
+	userName3 = "tamacyberw"
+	password3 = "ASDFGH00"
+	userName4 = "tamacyberg"
+	password4 = "ASDFGH00"
+	userName5 = "timacyberg"
+	password5 = "ASDFGH00"
+	userName6 = "timacyberw"
+	password6 = "ASDFGH00"
+	userName7 = "tomacyberw"
+	password7  = "ASDFGH00"
+    userName8 = "temacyberw"
+    password8  = "ASDFGH00"
+    userName9 = "kemacyberw"
+    password9  = "ASDFGH00"
+    userName10 = "kamacyberw"
+    password10  = "ASDFGH00"
+    userName11 = "tweetComp@walla.co.il"
+    password11  = "ASDFGH00"
+    userName12 = "mamegcyber"
+    password12  = "ASDFGH00"
+    userName13 = "sib.kroll@gmail.com"
+    password13  = "ASDFGH00"
+    userName14 = "momacyberg@walla.com"
+    password14  = "ASDFGH00"
+    userName15 = "kimacyber@walla.com"
+    password15  = "ASDFGH00"
+    userName16 = "komacyber@walla.co.il"
+    password16  = "ASDFGH00"
+    userName17 = "ramacyber@walla.com"
+    password17  = "ASDFGH00"
+    userName18 = "rimacyber@walla.com"
+    password18  = "ASDFGH00"
+    userName19 = "rimacyberg@walla.com"
+    password19  = "ASDFGH00"
+    userName20 = "remacyber@walla.com"
+    password20  = "ASDFGH00"
+    userName21 = "romacyber@walla.com"
+    password21  = "ASDFGH00"
+    userName22 = "samacyber@walla.com"
+    password22  = "ASDFGH00"
+    userName23 = "simacyber@walla.com"
+    password23  = "ASDFGH00"
+}
+
+Run_details = {
+	/*
+		CAN Be : text , pic , text_pic 
+	*/
+	type_of_tweet ="pic"
+	/*
+		CAN Be : 0  - for text, 1 - for all pics; 200  - for 200x200 ; 1000 - for 1000x1000 ; 2000 - for 2000x2000 
+	*/
+	type_restriction= 200
+	tweet_parameters ={
+		"num_of_all_tweets" = 200
+		"num_of_tweet" = 200
+   		"time_between_tweets" = 180/* #time in seconds between tweets*/
+		"num_of_set" = 100
+   		"break_time" = 300
+   		"min_time_between_tweets" = 180
+    	"max_time_between_tweets" = 300
+    	
+   		
+	}
+}
 /*
 	CAN Be : windows , OSx , Linux , Android
 */
@@ -8,22 +93,6 @@ Os_name = "OSx"
 Browser_name = "chrome"
 DB_path = "c:\twitterdb"
 Aplication_name = "twitter"
-
-
-User_details = {
-	userName0 = "jon.m.inbox@gmail.com"
-	password0 = "Info.Medasdfia"
-	userName1 = "jon.m.asas@gmail.com"
-	password1 = "Info.Medqqqqqqqia"
-	userName2 = "jon.m.cccc@gmail.com"
-	password2 = "Info.Medaaia"
-	userName3 = "jon.m.inqqqqqqqqqbox@gmail.com"
-	password3 = "Info.Mediwwwwwwwwwwa"
-	userName4 = "jon.m.inbeeeeeeeeeeox@gmail.com"
-	password4 = "Info.Medieeeeeeeeeea"
-	userName5 = "jon.m.inbrrrrrrrrrox@gmail.com"
-	password5 = "Info.Medtttttttttttttia"
-}
 
 Tshark_parameters = {
 /*
@@ -39,18 +108,4 @@ Tshark_parameters = {
 	write_file_type = "-w"
 	file_format = "os\t fileName\t time\t date"
 }
-
-Run_details = {
-	/*
-		CAN Be : text , pic , text&pic 
-	*/
-	function_name ="text"
-	function_parameters ={
-		param0 = "text"
-		param1 = "pic"
-		param2 = "text&pic"
-		param3 = "pharam3"
-	}
-}
-
 

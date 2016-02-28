@@ -22,7 +22,7 @@ class Twitter_scrapper():
     def __init__(self, webdriver, log_name=''):
         if log_name == '':
             log_name = r'D:\TwitterDB\twitter_log.tsv'
-
+       
         self.driver = webdriver
         self.driver.implicitly_wait(7) # seconds
         self.log = logging.getLogger('twitter')

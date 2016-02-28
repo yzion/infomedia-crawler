@@ -8,7 +8,7 @@ import subprocess
 from Twitter_scrapper_for_twitting import Twitter_scrapper
 import random
 
-
+from ImportFiles import TwitterImports as TI
 # from selenium.webdriver.support import expected_conditions as EC
 # from selenium.common.exceptions import TimeoutException, NoSuchElementException
 # import logging
@@ -326,15 +326,22 @@ def paths(path_list,pix_names):
 if __name__ == "__main__":
 
     """ path list for pictures folders """
-    path_list = [r'D:\TwitterDB\diff_pic\200 200', r'D:\TwitterDB\diff_pic\1000 1000', r'D:\TwitterDB\diff_pic\2000 2000']
+#    path_list = [r'D:\TwitterDB\diff_pic\200 200', r'D:\TwitterDB\diff_pic\1000 1000', r'D:\TwitterDB\diff_pic\2000 2000']
+    path_list = [TI.getPictures_path("P200"), TI.getPictures_path("P1000"), TI.getPictures_path("P2000")]
 
     """ list of users for testing """
     #twitter_users = ['someonemeso','someonemeso']
     #twitter_passwords = ['q1w2e3r4','q1w2e3r4']
 
     """ list of useres for the crawler """
-    twitter_users = ['mamecyber','mimacyber','moamacyber','tamacyberw','tamacyberg','timacyberg','timacyberw','tomacyberw','temacyberw','kemacyberw','kamacyberw','tweetComp@walla.co.il', 'mamegcyber', 'sib.kroll@gmail.com','momacyberg@walla.com','kimacyber@walla.com','komacyber@walla.co.il','ramacyber@walla.com','rimacyber@walla.com','rimacyberg@walla.com','remacyber@walla.com','romacyber@walla.com','samacyber@walla.com','simacyber@walla.com']
-    twitter_passwords = ['ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','Info1Media', 'ASDFGH00', '1234qwer','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00']
+#    twitter_users = ['mamecyber','mimacyber','moamacyber','tamacyberw','tamacyberg','timacyberg','timacyberw','tomacyberw','temacyberw','kemacyberw','kamacyberw','tweetComp@walla.co.il', 'mamegcyber', 'sib.kroll@gmail.com','momacyberg@walla.com','kimacyber@walla.com','komacyber@walla.co.il','ramacyber@walla.com','rimacyber@walla.com','rimacyberg@walla.com','remacyber@walla.com','romacyber@walla.com','samacyber@walla.com','simacyber@walla.com']
+    twitter_users = []
+    for index in range(TI.getCountOfUsers()):
+       twitter_users.append( TI.getUserName(index))
+    twitter_passwords = []
+    for index in range(TI.getCountOfUsers()):
+       twitter_passwords.append( TI.getUserPassword(index))
+#   twitter_passwords = ['ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','Info1Media', 'ASDFGH00', '1234qwer','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00']
 
     """ variable list """
     num_of_all_tweets = 200

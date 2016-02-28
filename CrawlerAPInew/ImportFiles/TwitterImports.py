@@ -1,32 +1,25 @@
-'''
-Created on 29 dec 2015
-
-@author: M
-
-
-if __name__ == '__main__':
-    pass
-    
-'''
-
 import os
 from os.path import join 
 
 import hcl
+import requests
+
+BASE_DIR = os.getcwd()
+twitterFolder = BASE_DIR+"/newCrawler/twitter"
 
 
-'''
-    local settings area
-'''
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-twitterFolder = BASE_DIR+"\\newCrawler\\twitter"
+r = requests.get('https://raw.githubusercontent.com/infomediaTeamCrawler/infomedia-crawler/dev/CrawlerAPInew/newCrawler/twitter/global_hcl_file.txt?token=AQtyeAl1nGZB55RL4BJ8t1Nxs9rMdHrDks5W3CyKwA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
 
+twitter_global_hcl_JsonFile = hcl.api.loads(r.text )
+print twitter_global_hcl_JsonFile
+keyWord = "P200"
+print twitter_global_hcl_JsonFile["Pictures_path"][keyWord]
 #open local file 
 ##with open(join(twitterFolder,"local_hcl_file.txt"),'r') as twitter_local_hcl_file:
 #  twitter_local_hcl_JsonFile = hcl.load(twitter_local_hcl_file)
 #open global file  
-with open(join(twitterFolder,"global_hcl_file.txt"),'r') as twitter_global_hcl_file:
-    twitter_global_hcl_JsonFile = hcl.load(twitter_global_hcl_file)
+#with open(join(twitterFolder,"global_hcl_file.txt"),'r') as twitter_global_hcl_file:
+#    twitter_global_hcl_JsonFile = hcl.load(twitter_global_hcl_file)
 
   
 
@@ -34,6 +27,36 @@ with open(join(twitterFolder,"global_hcl_file.txt"),'r') as twitter_global_hcl_f
          API area
 '''  
 '''     GLOBAL     API         '''
+def getPictures_path(keyWord):
+    return  str(twitter_global_hcl_JsonFile["Pictures_path"][keyWord])
+
+def getCountOfUsers():
+    return  len(twitter_global_hcl_JsonFile["User_details"])/2
+
+def getUserName(i):
+    return  str(twitter_global_hcl_JsonFile["User_details"]["userName"+`i`]) 
+
+def getUserPassword(i):
+    return   str(twitter_global_hcl_JsonFile["User_details"]["password"+`i`])
+
+def getTweetType():
+    return  str(twitter_global_hcl_JsonFile["Run_details"]["type_of_tweet"])
+
+def getTweetTypeRestrictions():
+    return  twitter_global_hcl_JsonFile["Run_details"]["type_restriction"]
+
+def getFunctionParameters(keyWord):
+    return  str(twitter_global_hcl_JsonFile["Run_details"]["tweet_parameters"][keyWord])
+
+
+
+
+
+
+
+
+
+
 def getOSName():
     return  twitter_global_hcl_JsonFile["Os_name"]
 
@@ -52,11 +75,6 @@ def getUserDetails(i):
 def getNumOfUsers():
     return  len(twitter_global_hcl_JsonFile["User_details"])/2
 
-def getUserName(i):
-    return  twitter_global_hcl_JsonFile["User_details"]["userName"+`i`] 
-
-def getUserPassword(i):
-    return   twitter_global_hcl_JsonFile["User_details"]["password"+`i`]
 
 def getTsharkPath():
     return  twitter_global_hcl_JsonFile["Tshark_parameters"]["Tshark_path"]
@@ -90,13 +108,7 @@ def getFileNameFormat():
 def gettsharkCallNoFileName():
     return  getTsharkPath(),getTsharkFileFullCommand() ,  getTsharkFilterFullCommand() , getTsharkNCInterface(), getTsharkWriteCommand()
 
-def getTweetType():
-    return  twitter_global_hcl_JsonFile["Run_details"]["function_name"]
-
-def getFunctionParameters(i):
-    return  twitter_global_hcl_JsonFile["Run_details"]["function_parameters"]["param"+`i`]
 
 def paramLength():
     return  len(twitter_global_hcl_JsonFile["Run_details"]["function_parameters"])
-
 

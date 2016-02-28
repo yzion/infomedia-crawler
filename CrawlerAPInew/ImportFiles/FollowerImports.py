@@ -1,25 +1,12 @@
-'''
-@Created on 27 december 2015
-
-@author: M
-
-if __name__ == '__main__':
-    pass
-'''
-
 import os
 from os.path import join
 
 import hcl
 
-'''
-    local settings area
-'''
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+#BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.getcwd()
-#followersFolder = BASE_DIR+"\\newCrawler\\follower"
 followersFolder = BASE_DIR+"/newCrawler/follower"
-
+print(followersFolder)
 #open local file
 with open(join(followersFolder,"local_hcl_file.txt"),'r') as follower_local_hcl_file:
     follower_local_hcl_JsonFile = hcl.load(follower_local_hcl_file)
@@ -72,7 +59,7 @@ def getFunctionParameters(i):
     return  follower_global_hcl_JsonFile["Run_details"]["function_parameters"]["param"+`i`]
 
 def getFunctionParametersByKey(key):
- return  follower_global_hcl_JsonFile["Run_details"]["function_parameters"].pop(key)
+ return  follower_global_hcl_JsonFile["Run_details"]["function_parameters"][key] 
 
 
 def paramLength():
