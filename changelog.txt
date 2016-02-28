@@ -1,3 +1,17 @@
+" 0.04 "
+CrawlerAPInew:
+	ImportFiles:
+		TwitterImports:
+			changed to load from git-hub account the global file
+			adjust the API by the new needs
+	TwittingMain:
+		add new file
+	newCrawler:
+		twitter:
+			global_hcl_file:
+				creating new fields of settings for the new API
+	
+	
 " 0.03 "
 CrawlerAPInew:
   ImportFiles:
