@@ -4,7 +4,7 @@ Log_settings = {
 		CAN BE : D:\TwitterDB\twitter_log.tsv,
 	*/
 	logName = "D:\TwitterDB\twitter_log.tsv"
-	
+
 }
 Pictures_path = {
 	P200 = "D:\TwitterDB\diff_pic\200 200"
@@ -64,11 +64,11 @@ User_details = {
 
 Run_details = {
 	/*
-		CAN Be : text , pic , text_pic 
+		CAN Be : text , pic , text_pic
 	*/
 	type_of_tweet ="pic"
 	/*
-		CAN Be : 0  - for text, 1 - for all pics; 200  - for 200x200 ; 1000 - for 1000x1000 ; 2000 - for 2000x2000 
+		CAN Be : 0  - for text, 1 - for all pics; 200  - for 200x200 ; 1000 - for 1000x1000 ; 2000 - for 2000x2000
 	*/
 	type_restriction= 200
 	tweet_parameters ={
@@ -79,14 +79,14 @@ Run_details = {
    		"break_time" = 300
    		"min_time_between_tweets" = 180
     	"max_time_between_tweets" = 300
-    	
-   		
+
+
 	}
 }
 /*
 	CAN Be : windows , OSx , Linux , Android
 */
-Os_name = "OSx"
+Os_name = "Linux"
 /*
 	CAN Be : chrome , ff , ie , firefox , Safri
 */
@@ -98,7 +98,7 @@ Tshark_parameters = {
 /*
 	CAN BE: /usr/bin/tshark - LINUX ,  C:\\Program Files\\Wireshark\\tshark.exe - WINDOWS
 */
-	Tshark_path = "C:\\Program Files\\Wireshark\\tshark.exe"
+	Tshark_path = "/usr/bin/tshark"
 	file_command = "-F"
 	file_type = "pcap"
 	filter_command = "-f"
@@ -108,4 +108,3 @@ Tshark_parameters = {
 	write_file_type = "-w"
 	file_format = "os\t fileName\t time\t date"
 }
-
