@@ -8,7 +8,7 @@ BASE_DIR = os.getcwd()
 twitterFolder = BASE_DIR+"/newCrawler/twitter"
 
 
-r = requests.get('https://raw.githubusercontent.com/infomediaTeamCrawler/infomedia-crawler/dev/CrawlerAPInew/newCrawler/twitter/global_hcl_file.txt?token=AQtyeAl1nGZB55RL4BJ8t1Nxs9rMdHrDks5W3CyKwA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
+r = requests.get('https://raw.githubusercontent.com/benamika/infomedia-crawler/dev/CrawlerAPInew/newCrawler/twitter/global_hcl_file.txt?token=AGd2fy20HgZaKixDaxSJdT0o5GJB_K8Qks5W6xsKwA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
 
 twitter_global_hcl_JsonFile = hcl.api.loads(r.text )
 #print twitter_global_hcl_JsonFile
