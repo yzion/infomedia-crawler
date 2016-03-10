@@ -11,9 +11,9 @@ twitterFolder = BASE_DIR+"/newCrawler/twitter"
 r = requests.get('https://raw.githubusercontent.com/infomediaTeamCrawler/infomedia-crawler/dev/CrawlerAPInew/newCrawler/twitter/global_hcl_file.txt?token=AQtyeAl1nGZB55RL4BJ8t1Nxs9rMdHrDks5W3CyKwA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
 
 twitter_global_hcl_JsonFile = hcl.api.loads(r.text )
-print twitter_global_hcl_JsonFile
-keyWord = "P200"
-print twitter_global_hcl_JsonFile["Pictures_path"][keyWord]
+#print twitter_global_hcl_JsonFile
+#keyWord = "P200"
+#print twitter_global_hcl_JsonFile["Pictures_path"][keyWord]
 #open local file 
 ##with open(join(twitterFolder,"local_hcl_file.txt"),'r') as twitter_local_hcl_file:
 #  twitter_local_hcl_JsonFile = hcl.load(twitter_local_hcl_file)

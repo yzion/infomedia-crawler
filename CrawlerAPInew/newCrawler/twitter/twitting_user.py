@@ -9,6 +9,7 @@ from Twitter_scrapper_for_twitting import Twitter_scrapper
 import random
 
 from ImportFiles import TwitterImports as TI
+#from ImportFiles import TwitterImports as TI
 # from selenium.webdriver.support import expected_conditions as EC
 # from selenium.common.exceptions import TimeoutException, NoSuchElementException
 # import logging
@@ -326,34 +327,34 @@ def paths(path_list,pix_names):
 if __name__ == "__main__":
 
     """ path list for pictures folders """
-#    path_list = [r'D:\TwitterDB\diff_pic\200 200', r'D:\TwitterDB\diff_pic\1000 1000', r'D:\TwitterDB\diff_pic\2000 2000']
     path_list = [TI.getPictures_path("P200"), TI.getPictures_path("P1000"), TI.getPictures_path("P2000")]
 
-    """ list of users for testing """
-    #twitter_users = ['someonemeso','someonemeso']
-    #twitter_passwords = ['q1w2e3r4','q1w2e3r4']
-
     """ list of useres for the crawler """
-#    twitter_users = ['mamecyber','mimacyber','moamacyber','tamacyberw','tamacyberg','timacyberg','timacyberw','tomacyberw','temacyberw','kemacyberw','kamacyberw','tweetComp@walla.co.il', 'mamegcyber', 'sib.kroll@gmail.com','momacyberg@walla.com','kimacyber@walla.com','komacyber@walla.co.il','ramacyber@walla.com','rimacyber@walla.com','rimacyberg@walla.com','remacyber@walla.com','romacyber@walla.com','samacyber@walla.com','simacyber@walla.com']
     twitter_users = []
     for index in range(TI.getCountOfUsers()):
-       twitter_users.append( TI.getUserName(index))
+        twitter_users.append( TI.getUserName(index))
     twitter_passwords = []
     for index in range(TI.getCountOfUsers()):
-       twitter_passwords.append( TI.getUserPassword(index))
-#   twitter_passwords = ['ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','Info1Media', 'ASDFGH00', '1234qwer','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00','ASDFGH00']
+        twitter_passwords.append( TI.getUserPassword(index))
 
     """ variable list """
-    num_of_all_tweets = 200
-    num_of_tweet = 200
-    time_between_tweets = 180 #time in seconds between tweets
-    num_of_set = 100
-    break_time = 300
+    num_of_all_tweets = TI.getFunctionParameters("num_of_all_tweets")#200
+    num_of_tweet = TI.getFunctionParameters("num_of_tweet")#200
+    time_between_tweets = TI.getFunctionParameters("time_between_tweets")#180 #time in seconds between tweets
+    num_of_set = TI.getFunctionParameters("num_of_set")#100
+    break_time = TI.getFunctionParameters("break_time")#300
 
     # vlues for random tweets
-    min_time_between_tweets = 180
-    max_time_between_tweets = 300
+    min_time_between_tweets = TI.getFunctionParameters("min_time_between_tweets")#180
+    max_time_between_tweets = TI.getFunctionParameters("max_time_between_tweets")#300
 
+
+    tweetType = TI.getTweetType()
+    print("tweetType1111111 "+ tweetType )
+    if(tweetType == "text"):
+        print("tweetType "+ tweetType )
+    #   tweetRestrictions = 0
+    tweetRestrictions = TI.getTweetTypeRestrictions()
 
     """ run for tweet_only_text """
     i= 0
@@ -363,8 +364,8 @@ if __name__ == "__main__":
         tweet_only_text(username,password,num_of_tweet,time_between_tweets,num_of_set,break_time)
         i += 1
         if(Twitter_scrapper.tweets_number >= num_of_all_tweets):
-              Twitter_scrapper.tweets_number = 0
-              break
+            Twitter_scrapper.tweets_number = 0
+            break
 
 
 
