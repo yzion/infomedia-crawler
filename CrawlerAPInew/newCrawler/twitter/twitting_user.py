@@ -9,6 +9,7 @@ from Twitter_scrapper_for_twitting import Twitter_scrapper
 import random
 
 from ImportFiles import TwitterImports as TI
+from boto.dynamodb.condition import NULL
 #from ImportFiles import TwitterImports as TI
 # from selenium.webdriver.support import expected_conditions as EC
 # from selenium.common.exceptions import TimeoutException, NoSuchElementException
@@ -103,7 +104,7 @@ time_between_tweets = time between an individual Tweets (in seconds)
 num_of_set = after this number of tweets will be a break of "break_time" seconds.
 break_time = time to wait between set of tweets. by default "break_time"=60
 """
-def tweet_only_text(user_name, password, num_of_tweet, time_between_tweets, num_of_set, break_time = 60):
+def tweet_only_text(user_name, password, num_of_tweet, time_between_tweets, num_of_set, break_time = 60, pix_path = NULL):
     log_str, driver, tshark_proc = start_driver_and_pcap()
 
     try:
@@ -350,12 +351,25 @@ if __name__ == "__main__":
 
 
     tweetType = TI.getTweetType()
-    print("tweetType1111111 "+ tweetType )
-    if(tweetType == "text"):
-        print("tweetType "+ tweetType )
-    #   tweetRestrictions = 0
-    tweetRestrictions = TI.getTweetTypeRestrictions()
+    
+    if(tweetType == "tweet_only_text"):
+        tweetRestrictions = 0
+    elif(tweetType == "random_tweet"):
+        # random_tweet()
+        print("random_tweet")
+        tweetType = "tweet_only_text"
+    else:
+        tweetRestrictions = TI.getTweetTypeRestrictions()
 
+    possibles = globals().copy()
+    possibles.update(locals())
+    method = possibles.get(tweetType)
+    if not method:
+        raise NotImplementedError("Method %s not implemented" % tweetType)
+    
+    print(method)
+    #break
+    method()
     """ run for tweet_only_text """
     i= 0
     while i < (len(twitter_users)*4):

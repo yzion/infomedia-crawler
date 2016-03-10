@@ -64,9 +64,9 @@ User_details = {
 
 Run_details = {
 	/*
-		CAN Be : text , pic , text_pic
+		CAN Be : tweet_only_text , tweet_only_pic , tweet_pic_with_text , random_tweet
 	*/
-	type_of_tweet ="text"
+	type_of_tweet ="tweet_only_text"
 	/*
 		CAN Be : 0  - for text, 1 - for all pics; 200  - for 200x200 ; 1000 - for 1000x1000 ; 2000 - for 2000x2000
 	*/
