@@ -1,10 +1,6 @@
 
 Log_settings = {
-	/*
-		CAN BE : D:\TwitterDB\twitter_log.tsv,
-	*/
-	logName = "D:\TwitterDB\twitter_log.tsv"
-
+	logName = "D:\TwitterDB\twitter_log.tsv"  /*	D:\TwitterDB\twitter_log.tsv, 		*/
 }
 Pictures_path = {
 	P200 = "D:\TwitterDB\diff_pic\200 200"
@@ -63,18 +59,12 @@ User_details = {
 }
 
 Run_details = {
-	/*
-		CAN Be : tweet_only_text , tweet_only_pic , tweet_pic_with_text , random_tweet
-	*/
-	type_of_tweet ="tweet_only_text"
-	/*
-		CAN Be : 0  - for text, 1 - for all pics; 200  - for 200x200 ; 1000 - for 1000x1000 ; 2000 - for 2000x2000
-	*/
-	type_restriction= 200
+	type_of_tweet ="tweet_only_pic"		/*	tweet_only_text , tweet_only_pic , tweet_pic_with_text , random_tweet	*/
+	type_restriction= 2000		/*	 0  - for text, 1 - for all pics, 200  - for 200x200 ; 1000 - for 1000x1000 ; 2000 - for 2000x2000	*/
 	tweet_parameters ={
 		"num_of_all_tweets" = 200
 		"num_of_tweet" = 200
-   		"time_between_tweets" = 180/* #time in seconds between tweets*/
+   		"time_between_tweets" = 180		/* #time in seconds between tweets*/
 		"num_of_set" = 100
    		"break_time" = 300
    		"min_time_between_tweets" = 180
@@ -83,28 +73,20 @@ Run_details = {
 
 	}
 }
-/*
-	CAN Be : windows , OSx , Linux , Android
-*/
-Os_name = "Linux"
-/*
-	CAN Be : chrome , ff , ie , firefox , Safri
-*/
-Browser_name = "chrome"
-DB_path = "c:\twitterdb"
+Os_name = "Linux" 			/*	windows , OSx , Linux , Android	 */ 
+Browser_name = "chrome"  	/*	chrome , ff , ie , firefox , Safri	 */
+DB_path = "c:\\twitterdb"	/*	c:\\twitterdb , d:\\twitterdb 	*/
 Aplication_name = "twitter"
 
 Tshark_parameters = {
-/*
-	CAN BE: /usr/bin/tshark - LINUX ,  C:\\Program Files\\Wireshark\\tshark.exe - WINDOWS
-*/
-	Tshark_path = "/usr/bin/tshark"
+   											/*					windows			****** 			 linux			*/
+	Tshark_path = "/usr/bin/tshark" 	/* C:\\Program Files\\Wireshark\\tshark.exe ****** /usr/bin/tshark  */
 	file_command = "-F"
 	file_type = "pcap"
 	filter_command = "-f"
 	filter_type = "tcp port 443"
 	NC_interface = "-i"
-	NC_interface_data = "1"
+	NC_interface_data = "1" 				/* 			1 				******				2 					*/
 	write_file_type = "-w"
 	file_format = "os\t fileName\t time\t date"
 }

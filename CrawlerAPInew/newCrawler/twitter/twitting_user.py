@@ -10,7 +10,7 @@ import random
 
 from ImportFiles import TwitterImports as TI
 from boto.dynamodb.condition import NULL
-#from ImportFiles import TwitterImports as TI
+
 # from selenium.webdriver.support import expected_conditions as EC
 # from selenium.common.exceptions import TimeoutException, NoSuchElementException
 # import logging
@@ -37,10 +37,7 @@ def end_runing_func(tshark_proc,driver,tw):
 Start and return Tshark process
 """
 def createPcap(filename):
-    if platform.system() == 'Windows':
-        tsharkCall = ["C:\\Program Files\\Wireshark\\tshark.exe","-F", "pcap", "-f", "tcp port 443", "-i", "1", "-w", filename]
-    elif platform.system() == 'Linux':
-        tsharkCall = ["/usr/bin/tshark","-F", "pcap", "-f", "tcp port 443", "-i", "2", "-w", filename]
+    tsharkCall = [TI.getTsharkPath(),TI.getTsharkFileCommand(), TI.getTsharkFileType(), TI.getTsharkFilterCommand(), TI.getTsharkFilterType(), TI.getTsharkNCInterface(), TI.getTsharkNCInterfaceData(), TI.getTsharkWriteCommand(), filename]
     tsharkProc = subprocess.Popen(tsharkCall)
     return tsharkProc
 
@@ -78,8 +75,9 @@ def create_log_name(browser_str, root_path):
 initialize and return log file, driver and tshark process
 """
 def start_driver_and_pcap():
-    browser = 'chrome'
-    db_path = r'd:\twitterdb'
+    browser = TI.getBrowserName()
+    """ TODO: TI.getDBPath() NEEDS A POLISH TO r string """
+    db_path = TI.getDBPath()
     log_str = create_log_name(browser, db_path)
 
     # get Web Driver
@@ -356,7 +354,7 @@ if __name__ == "__main__":
         tweetRestrictions = 0
     elif(tweetType == "random_tweet"):
         # random_tweet()
-        print("random_tweet")
+        print("random_tweet needs implementation changing to tweet_only_text")
         tweetType = "tweet_only_text"
     else:
         tweetRestrictions = TI.getTweetTypeRestrictions()
@@ -367,66 +365,33 @@ if __name__ == "__main__":
     if not method:
         raise NotImplementedError("Method %s not implemented" % tweetType)
     
-    print(method)
-    #break
-    method()
-    """ run for tweet_only_text """
-    i= 0
-    while i < (len(twitter_users)*4):
-        username = twitter_users[i % len(twitter_users)]
-        password = twitter_passwords[i % len(twitter_users)]
-        tweet_only_text(username,password,num_of_tweet,time_between_tweets,num_of_set,break_time)
-        i += 1
-        if(Twitter_scrapper.tweets_number >= num_of_all_tweets):
-            Twitter_scrapper.tweets_number = 0
-            break
-
-
-
-    """ run for tweet_only_pic """
-
-#     i= 0
-#     for pix_path in path_list:
-#         while i < (len(twitter_users)*4):
-#             username = twitter_users[i % len(twitter_users)]
-#             password = twitter_passwords[i % len(twitter_users)]
-#             tweet_only_pic(username, password, num_of_tweet, time_between_tweets, num_of_set, break_time,pix_path)
-#             i += 1
-#             if(Twitter_scrapper.tweets_number >= num_of_all_tweets):
-#                 Twitter_scrapper.tweets_number = 0
-#                 break
-#         time.sleep(60)
-
-    """ run for tweet_only_pic just on the specific images resolution"""
-
-#     i= 0
-#     pix_path = path_list[2]
-#     while i < (len(twitter_users)*4):
-#         username = twitter_users[i % len(twitter_users)]
-#         password = twitter_passwords[i % len(twitter_users)]
-#         tweet_only_pic(username, password, num_of_tweet, time_between_tweets, num_of_set, break_time,pix_path)
-#         i += 1
-#         if(Twitter_scrapper.tweets_number >= num_of_all_tweets):
-#             Twitter_scrapper.tweets_number = 0
-#             break
-#     time.sleep(60)
-
-
-#
-    """ run for tweet_pic_with_text just on the 2000*2000 images"""
-#     pix_path_2000 = path_list[2]
-#
-#     i=5
-#     while i < (len(twitter_users)*4):
-#         username = twitter_users[i % len(twitter_users)]
-#         password = twitter_passwords[i % len(twitter_users)]
-#         tweet_pic_with_text(username, password, num_of_tweet, time_between_tweets, num_of_set, break_time,pix_path_2000)
-#         i += 1
-#         if(Twitter_scrapper.tweets_number >= num_of_all_tweets):
-#             Twitter_scrapper.tweets_number = 0
-#             break
-#     time.sleep(60)
-
+   
+    """ run for tweet_only_text AND tweet_only_pic AND tweet_pic_with_text """
+    pics_recurser=1
+    if(tweetRestrictions == 1):        
+        pics_recurser = len(path_list)  
+    i = 0
+    for j in range(0 , pics_recurser):
+        #print "random_tweet j=",j
+        if(tweetRestrictions == 1):
+            pix_path = path_list[j]
+        elif(tweetRestrictions == 200 and tweetType != "tweet_only_text"): 
+            pix_path = path_list[0]
+        elif(tweetRestrictions == 1000 and tweetType != "tweet_only_text"): 
+            pix_path = path_list[1]   
+        elif(tweetRestrictions == 2000 and tweetType != "tweet_only_text"): 
+            pix_path = path_list[2]
+        else :
+            pix_path = NULL
+        while i < (len(twitter_users)*4):
+            username = twitter_users[i % len(twitter_users)]
+            password = twitter_passwords[i % len(twitter_users)]
+            method(username, password, num_of_tweet, time_between_tweets, num_of_set, break_time,pix_path)
+            i += 1
+            if(Twitter_scrapper.tweets_number >= num_of_all_tweets):
+                Twitter_scrapper.tweets_number = 0
+                break
+        time.sleep(60)
 
     """ run for random_tweet"""
 

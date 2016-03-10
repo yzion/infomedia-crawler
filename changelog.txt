@@ -1,3 +1,15 @@
+" 0.05 "
+CrawlerAPInew:
+	ImportFiles:
+		TwitterImports:
+			added toggle option to work offline
+	newCrawler:
+		twitter:
+			global_hcl_file:
+				changing order of parameters , adjust to need in program
+			twitting_user:
+				connect the settings file via the API (TI)
+
 " 0.04 "
 CrawlerAPInew:
 	ImportFiles:
