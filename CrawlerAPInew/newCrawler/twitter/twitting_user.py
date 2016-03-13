@@ -38,6 +38,7 @@ Start and return Tshark process
 """
 def createPcap(filename):
     tsharkCall = [TI.getTsharkPath(),TI.getTsharkFileCommand(), TI.getTsharkFileType(), TI.getTsharkFilterCommand(), TI.getTsharkFilterType(), TI.getTsharkNCInterface(), TI.getTsharkNCInterfaceData(), TI.getTsharkWriteCommand(), filename]
+    print tsharkCall
     tsharkProc = subprocess.Popen(tsharkCall)
     return tsharkProc
 
@@ -339,7 +340,7 @@ if __name__ == "__main__":
     """ variable list """
     num_of_all_tweets = TI.getFunctionParameters("num_of_all_tweets")#200
     num_of_tweet = TI.getFunctionParameters("num_of_tweet")#200
-    time_between_tweets = TI.getFunctionParameters("time_between_tweets")#180 #time in seconds between tweets
+    time_between_tweets = float(TI.getFunctionParameters("time_between_tweets"))#180 #time in seconds between tweets
     num_of_set = TI.getFunctionParameters("num_of_set")#100
     break_time = TI.getFunctionParameters("break_time")#300
 

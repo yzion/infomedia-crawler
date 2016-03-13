@@ -59,7 +59,7 @@ User_details = {
 }
 
 Run_details = {
-	type_of_tweet ="tweet_only_pic"		/*	tweet_only_text , tweet_only_pic , tweet_pic_with_text , random_tweet	*/
+	type_of_tweet ="tweet_only_text"		/*	tweet_only_text , tweet_only_pic , tweet_pic_with_text , random_tweet	*/
 	type_restriction= 2000		/*	 0  - for text, 1 - for all pics, 200  - for 200x200 ; 1000 - for 1000x1000 ; 2000 - for 2000x2000	*/
 	tweet_parameters ={
 		"num_of_all_tweets" = 200
@@ -75,12 +75,11 @@ Run_details = {
 }
 Os_name = "Linux" 			/*	windows , OSx , Linux , Android	 */ 
 Browser_name = "chrome"  	/*	chrome , ff , ie , firefox , Safri	 */
-DB_path = "c:\\twitterdb"	/*	c:\\twitterdb , d:\\twitterdb 	*/
-Aplication_name = "twitter"
+DB_path = "c:\twitterdb"	/*	c:\\twitterdb , d:\\twitterdb 	*/
 
 Tshark_parameters = {
    											/*					windows			****** 			 linux			*/
-	Tshark_path = "/usr/bin/tshark" 	/* C:\\Program Files\\Wireshark\\tshark.exe ****** /usr/bin/tshark  */
+	Tshark_path = "C:\Program Files\Wireshark\tshark.exe" 	/* C:\\Program Files\\Wireshark\\tshark.exe ****** /usr/bin/tshark  */
 	file_command = "-F"
 	file_type = "pcap"
 	filter_command = "-f"
@@ -88,5 +87,4 @@ Tshark_parameters = {
 	NC_interface = "-i"
 	NC_interface_data = "1" 				/* 			1 				******				2 					*/
 	write_file_type = "-w"
-	file_format = "os\t fileName\t time\t date"
 }
