@@ -1,3 +1,24 @@
+" 0.06 "
+CrawlerAPInew:
+	ImportFiles:
+		TwitterImports:
+			fixed toggle option to work offline
+		FollowerImports:
+			added toggle option to work offline
+	newCrawler:
+		twitter:
+			global_hcl_file:
+				changing order of parameters , adjust to need in program
+			twitting_user:
+				fix bugs of tshark connection
+		follower:
+			global_hcl_file:
+				changing order of parameters , adjust to need in program
+			follolwing_user:
+				connect the settings file via the API (FI)
+				
+
+
 " 0.05 "
 CrawlerAPInew:
 	ImportFiles:
