@@ -5,14 +5,14 @@ import hcl
 import requests
 
 """    working offline on local comp """
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-twitterFolder = BASE_DIR+r"\newCrawler\twitter"
-with open(join(twitterFolder,"global_hcl_file.txt"),'r') as twitter_global_hcl_file:
-    twitter_global_hcl_JsonFile = hcl.load(twitter_global_hcl_file)
-
+#BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+#twitterFolder = BASE_DIR+r"\newCrawler\twitter"
+#with open(join(twitterFolder,"global_hcl_file.txt"),'r') as twitter_global_hcl_file:
+#    twitter_global_hcl_JsonFile = hcl.load(twitter_global_hcl_file)
+   
 """    working online import settings file from benamika GitHub's account """
-#r = requests.get('https://raw.githubusercontent.com/benamika/infomedia-crawler/dev/CrawlerAPInew/newCrawler/twitter/global_hcl_file.txt?token=AGd2fy20HgZaKixDaxSJdT0o5GJB_K8Qks5W6xsKwA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
-#twitter_global_hcl_JsonFile = hcl.api.loads(r.text )
+r = requests.get('https://raw.githubusercontent.com/benamika/infomedia-crawler/dev/CrawlerAPInew/newCrawler/twitter/global_hcl_file.txt?token=AGd2fy20HgZaKixDaxSJdT0o5GJB_K8Qks5W6xsKwA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
+twitter_global_hcl_JsonFile = hcl.api.loads(r.text )
 
 '''
          API area
@@ -37,7 +37,7 @@ def getTweetTypeRestrictions():
     return  twitter_global_hcl_JsonFile["Run_details"]["type_restriction"]
 
 def getFunctionParameters(keyWord):
-    return  str(twitter_global_hcl_JsonFile["Run_details"]["tweet_parameters"][keyWord])
+    return  twitter_global_hcl_JsonFile["Run_details"]["tweet_parameters"][keyWord]
 
 
 '''    TSHARK settings    '''

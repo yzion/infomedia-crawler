@@ -64,10 +64,10 @@ Run_details = {
 	tweet_parameters ={
 		"num_of_all_tweets" = 200
 		"num_of_tweet" = 200
-   		"time_between_tweets" = 180		/* #time in seconds between tweets*/
+   		"time_between_tweets" = 30		/* #time in seconds between tweets*/
 		"num_of_set" = 100
    		"break_time" = 300
-   		"min_time_between_tweets" = 180
+   		"min_time_between_tweets" = 10
     	"max_time_between_tweets" = 300
 
 

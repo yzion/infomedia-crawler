@@ -15,12 +15,12 @@ with open(join(followersFolder,"local_hcl_file.txt"),'r') as follower_local_hcl_
 '''         GLOBAL    FOLLOWER    FILE    '''
 
 """    working online import settings file from benamika GitHub's account """
-#r = requests.get('https://raw.githubusercontent.com/benamika/infomedia-crawler/dev/CrawlerAPInew/newCrawler/follower/global_hcl_file.txt?token=AGd2fw5-zdImSSxGDVBK-Dt1T9n68_Owks5W7o84wA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
-#twitter_global_hcl_JsonFile = hcl.api.loads(r.text )
+r = requests.get('https://raw.githubusercontent.com/benamika/infomedia-crawler/dev/CrawlerAPInew/newCrawler/follower/global_hcl_file.txt?token=AGd2fw5-zdImSSxGDVBK-Dt1T9n68_Owks5W7o84wA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
+follower_global_hcl_JsonFile = hcl.api.loads(r.text )
 
 """    working offline on local comp """
-with open(join(followersFolder,"global_hcl_file.txt"),'r') as follower_global_hcl_file:
-    follower_global_hcl_JsonFile = hcl.load(follower_global_hcl_file)
+#with open(join(followersFolder,"global_hcl_file.txt"),'r') as follower_global_hcl_file:
+#    follower_global_hcl_JsonFile = hcl.load(follower_global_hcl_file)
 
 '''        API AREA    '''
     
