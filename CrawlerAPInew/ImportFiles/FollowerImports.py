@@ -1,18 +1,15 @@
 import os
 from os.path import join
-
 import hcl
 import requests
 
+"""   loading local config file from local comp """
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-#BASE_DIR = os.getcwd()
 followersFolder = BASE_DIR+r"\newCrawler\follower"
-#print(followersFolder)
-#open local file
 with open(join(followersFolder,"local_hcl_file.txt"),'r') as follower_local_hcl_file:
     follower_local_hcl_JsonFile = hcl.load(follower_local_hcl_file)
   
-'''         GLOBAL    FOLLOWER    FILE    '''
+'''    ******     GLOBAL    FOLLOWER    FILE     ******   '''
 
 """    working online import settings file from benamika GitHub's account """
 r = requests.get('https://raw.githubusercontent.com/benamika/infomedia-crawler/dev/CrawlerAPInew/newCrawler/follower/global_hcl_file.txt?token=AGd2fw5-zdImSSxGDVBK-Dt1T9n68_Owks5W7o84wA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
@@ -73,3 +70,6 @@ def getTsharkNCInterfaceData():
 def getTsharkWriteCommand():
     return  str(follower_local_hcl_JsonFile["Tshark_parameters"]["write_file_type"])
 
+'''    LOGFILE settings    '''
+def getDefaultLogFilePath():
+    return  follower_local_hcl_JsonFile["Log_settings"]["logName"]

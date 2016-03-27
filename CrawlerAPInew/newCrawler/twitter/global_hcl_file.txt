@@ -73,13 +73,11 @@ Run_details = {
 
 	}
 }
-Os_name = "Linux" 			/*	windows , OSx , Linux , Android	 */ 
 Browser_name = "chrome"  	/*	chrome , ff , ie , firefox , Safri	 */
-DB_path = "c:\twitterdb"	/*	c:\\twitterdb , d:\\twitterdb 	*/
 
 Tshark_parameters = {
    											/*					windows			****** 			 linux			*/
-	Tshark_path = "C:\Program Files\Wireshark\tshark.exe" 	/* C:\\Program Files\\Wireshark\\tshark.exe ****** /usr/bin/tshark  */
+	Tshark_path = "C:\Program Files\Wireshark\tshark.exe" 	/* C:\Program Files\Wireshark\tshark.exe ****** /usr/bin/tshark  */
 	file_command = "-F"
 	file_type = "pcap"
 	filter_command = "-f"
@@ -88,3 +86,7 @@ Tshark_parameters = {
 	NC_interface_data = "1" 				/* 			1 				******				2 					*/
 	write_file_type = "-w"
 }
+
+Os_name = "Linux" 			/*	windows , OSx , Linux , Android	 */ 
+
+DB_path = "c:\twitterdb"	/*	c:\twitterdb , d:\twitterdb 	*/

@@ -1,4 +1,4 @@
-" 0.07 "
+" 0.08 "
 CrawlerAPInew:
 	ImportFiles:
 		TwitterImports:
@@ -6,6 +6,30 @@ CrawlerAPInew:
 		FollowerImports:
 			 toggle back to option to work online
 	
+
+" 0.07 "
+CrawlerAPInew:
+	ImportFiles:
+		TwitterImports:
+				add new Func in API - default path for log file registration
+		FollowerImports:
+				add new Func in API - default path for log file registration
+	newCrawler:
+		twitter:
+			global_hcl_file:
+					adjust paths to windows OS
+			twitting_user:
+					- adjust paths to windows OS
+					- clean prints in code
+			Twitter_scrapper_for_twitter:
+					change default log file path to load from the local config file
+		follower:
+			local_hcl_file:
+					add new config  - log settings - default path for log file
+			follolwing_user:
+					clean prints in code
+			Twitter_scrapper_for_follower:
+					change default logfile path to load from the local config file
 
 
 " 0.06 "

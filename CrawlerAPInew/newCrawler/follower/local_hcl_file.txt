@@ -20,3 +20,7 @@ Tshark_parameters = {
 	NC_interface_data = "1" 				/* 			1 				******				2 					*/
 	write_file_type = "-w"
 }
+
+Log_settings = {
+	logName = "D:\TwitterDB\twitter_log.tsv"  /*	D:\TwitterDB\twitter_log.tsv, 		*/
+}

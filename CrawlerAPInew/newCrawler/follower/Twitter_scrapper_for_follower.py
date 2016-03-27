@@ -11,7 +11,7 @@ import os
 # import platform
 # import subprocess
 # import random
-
+from ImportFiles import FollowerImports as FI
 LOGGER_FORMAT_START = '%(asctime)-15s\t%(levelno)d\t%(levelname)s\t'
 
 
@@ -22,7 +22,7 @@ class Twitter_scrapper():
     """
     def __init__(self, webdriver, log_name=''):
         if log_name == '':
-            log_name = r'D:\TwitterDB\twitter_log.tsv'
+            log_name = FI.getDefaultLogFilePath()#r'D:\TwitterDB\twitter_log.tsv'
 
         self.driver = webdriver
         self.driver.implicitly_wait(7) # seconds

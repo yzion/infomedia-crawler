@@ -12,7 +12,7 @@ import subprocess
 import random
 
 LOGGER_FORMAT_START = '%(asctime)-15s\t%(levelno)d\t%(levelname)s\t'
-
+from ImportFiles import TwitterImports as TI
 
 class Twitter_scrapper():
     tweets_number = 0
@@ -21,8 +21,7 @@ class Twitter_scrapper():
     """
     def __init__(self, webdriver, log_name=''):
         if log_name == '':
-            log_name = r'D:\TwitterDB\twitter_log.tsv'
-       
+            log_name =  TI.getDefaultLogFilePath()#r'D:\TwitterDB\twitter_log.tsv'
         self.driver = webdriver
         self.driver.implicitly_wait(7) # seconds
         self.log = logging.getLogger('twitter')

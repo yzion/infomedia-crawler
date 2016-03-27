@@ -15,14 +15,13 @@ from Twitter_scrapper_for_follower import Twitter_scrapper
  
 from ImportFiles import FollowerImports as FI
 from ImportFiles import TwitterImports as TI
-# import loggingd
 
 LOGGER_FORMAT_START = '%(asctime)-15s\t%(levelno)d\t%(levelname)s\t'
 
 def createPcap(filename):
     
     tsharkCall = [FI.getTsharkPath(),FI.getTsharkFileCommand(), FI.getTsharkFileType(), FI.getTsharkFilterCommand(), FI.getTsharkFilterType(), FI.getTsharkNCInterface(), FI.getTsharkNCInterfaceData(), FI.getTsharkWriteCommand(), str(filename)]
-    print tsharkCall
+    
     tsharkProc = subprocess.Popen(tsharkCall)
     return tsharkProc
 
@@ -46,7 +45,6 @@ def create_log_name(browser_str, root_path):
 
     os_name = platform.system()[0]
     host_name = platform.node()
-    print root_path + os.sep+ os_name
     return root_path + os.sep + os_name + '_' + host_name + '_' + browser_str + "_" + time_str
 
 """

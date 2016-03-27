@@ -11,13 +11,6 @@ import random
 from ImportFiles import TwitterImports as TI
 from boto.dynamodb.condition import NULL
 
-# from selenium.webdriver.support import expected_conditions as EC
-# from selenium.common.exceptions import TimeoutException, NoSuchElementException
-# import logging
-# import random
-# from selenium.webdriver.common.by import By
-
-
 LOGGER_FORMAT_START = '%(asctime)-15s\t%(levelno)d\t%(levelname)s\t'
 
 """
@@ -38,8 +31,7 @@ Start and return Tshark process
 """
 def createPcap(filename):
     tsharkCall = [TI.getTsharkPath(),TI.getTsharkFileCommand(), TI.getTsharkFileType(), TI.getTsharkFilterCommand(), TI.getTsharkFilterType(), TI.getTsharkNCInterface(), TI.getTsharkNCInterfaceData(), TI.getTsharkWriteCommand(), filename]
-    print tsharkCall
-    tsharkProc = subprocess.Popen(tsharkCall)
+    tsharkProc = subprocess.Popen(tsharkCall[0].encode('string-escape'))
     return tsharkProc
 
 """
@@ -77,7 +69,6 @@ initialize and return log file, driver and tshark process
 """
 def start_driver_and_pcap():
     browser = TI.getBrowserName()
-    """ TODO: TI.getDBPath() NEEDS A POLISH TO r string """
     db_path = TI.getDBPath()
     log_str = create_log_name(browser, db_path)
 
@@ -111,7 +102,7 @@ def tweet_only_text(user_name, password, num_of_tweet, time_between_tweets, num_
         # login to Twitter
         tw = Twitter_scrapper(driver, log_str + '.tsv')
         if not tw.login(user_name, password):
-            print 'Logging to Tweeter account failed'
+            print 'Logging to Twitter account failed'
             return
         dd = datetime.datetime.now()
         twttext = dd.strftime('Now is %Y-%m-%d %H:%M:%S +%f')
