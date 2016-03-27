@@ -31,7 +31,7 @@ Start and return Tshark process
 """
 def createPcap(filename):
     tsharkCall = [TI.getTsharkPath(),TI.getTsharkFileCommand(), TI.getTsharkFileType(), TI.getTsharkFilterCommand(), TI.getTsharkFilterType(), TI.getTsharkNCInterface(), TI.getTsharkNCInterfaceData(), TI.getTsharkWriteCommand(), filename]
-    tsharkProc = subprocess.Popen(tsharkCall[0].encode('string-escape'))
+    tsharkProc = subprocess.Popen(tsharkCall)
     return tsharkProc
 
 """
