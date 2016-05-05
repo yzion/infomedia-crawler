@@ -1,6 +1,6 @@
 
 Log_settings = {
-	logName = "/home/cyber/infoMediaGenericAPI/twitting-user/default-twitter-logs/twitter_log.tsv"  
+	logName = "D:\TwitterDB\twitter_log.tsv"  
 				/*	D:\TwitterDB\twitter_log.tsv		******	/home/cyber/infoMediaGenericAPI/twitting-user/default-twitter-logs/twitter_log.tsv	*/
 }
 Pictures_path = {
@@ -81,16 +81,16 @@ Browser_name = "chrome"  			/*					chrome , ff , ie , firefox , Safri					*/
 
 Tshark_parameters = {
    						/*					windows			****** 			 linux			*/
-	Tshark_path = "/usr/bin/tshark" 	/* C:\Program Files\Wireshark\tshark.exe 			****** 			/usr/bin/tshark  	*/
+	Tshark_path = "C:\Program Files\Wireshark\tshark.exe" 	/* C:\Program Files\Wireshark\tshark.exe 			****** 			/usr/bin/tshark  	*/
 	file_command = "-F"
 	file_type = "pcap"
 	filter_command = "-f"
 	filter_type = "tcp port 443"
 	NC_interface = "-i"
-	NC_interface_data = "1" 		/* 			1 					******			2 			*/
+	NC_interface_data = "2" 		/* 			1 					******			2 			*/
 	write_file_type = "-w"
 }
 
 Os_name = "Linux" 			/*	windows , OSx , Linux , Android	 */ 
 
-DB_path = "/home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB"	/*	c:\twitterdb , /home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB 	*/
+DB_path = "c:\twitterdb"	/*	c:\twitterdb , /home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB 	*/

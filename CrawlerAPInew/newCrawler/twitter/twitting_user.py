@@ -76,6 +76,7 @@ def start_driver_and_pcap():
     driver = init_driver(browser)
 
     # get TShark recording
+    print log_str + '.pcap'
     tshark_proc = createPcap(log_str + '.pcap')
     time.sleep(5)
     return log_str, driver, tshark_proc

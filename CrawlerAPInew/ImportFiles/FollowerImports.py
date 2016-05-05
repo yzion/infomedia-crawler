@@ -2,10 +2,17 @@ import os
 from os.path import join
 import hcl
 import requests
+import platform
 
 """   loading local config file from local comp """
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-followersFolder = BASE_DIR+r"\newCrawler\follower"
+Folder_Location = ""
+if platform.system() == 'Windows':
+    Folder_Location = r"\newCrawler\twitter"
+if platform.system() == 'Linux':
+    Folder_Location = r"/newCrawler/twitter"
+    
+followersFolder = BASE_DIR+Folder_Location
 with open(join(followersFolder,"local_hcl_file.txt"),'r') as follower_local_hcl_file:
     follower_local_hcl_JsonFile = hcl.load(follower_local_hcl_file)
   

@@ -1,13 +1,20 @@
+import platform
 import os
 from os.path import join 
 import hcl
 import requests
 
 """    working offline on local comp """
-#BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-#twitterFolder = BASE_DIR+r"\newCrawler\twitter"
-#with open(join(twitterFolder,"global_hcl_file.txt"),'r') as twitter_global_hcl_file:
-#    twitter_global_hcl_JsonFile = hcl.load(twitter_global_hcl_file)
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+Folder_Location = ""
+if platform.system() == 'Windows':
+    Folder_Location = r"\newCrawler\twitter"
+if platform.system() == 'Linux':
+    Folder_Location = r"/newCrawler/twitter"
+    
+twitterFolder = BASE_DIR+Folder_Location
+with open(join(twitterFolder,"global_hcl_file.txt"),'r') as twitter_global_hcl_file:
+    twitter_global_hcl_JsonFile = hcl.load(twitter_global_hcl_file)
  
 """    working online import settings file from benamika GitHub's account """
 r = requests.get('https://raw.githubusercontent.com/benamika/infomedia-crawler/dev/CrawlerAPInew/newCrawler/twitter/global_hcl_file.txt?token=AGd2fy20HgZaKixDaxSJdT0o5GJB_K8Qks5W6xsKwA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
