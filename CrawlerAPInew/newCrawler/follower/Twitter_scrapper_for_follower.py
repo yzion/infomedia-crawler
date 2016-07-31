@@ -11,6 +11,9 @@ import os
 # import platform
 # import subprocess
 # import random FollowerImports
+
+import sys
+sys.path.insert(0, '/home/cyber/ubuntu firefox twitter follower/infomedia-crawler/CrawlerAPInew/ImportFiles')
 import FollowerImports as FI
 LOGGER_FORMAT_START = '%(asctime)-15s\t%(levelno)d\t%(levelname)s\t'
 
@@ -44,7 +47,7 @@ class Twitter_scrapper():
     Login into tweeter account
     """
     def login(self, username, passwd):
-       
+
         self.log_extra['username'] = username
         self.log.info('Trying to log in as  {%s}:{%s}'%(username,passwd), extra=self.log_extra)
         self.driver.get("http://twitter.com/login")
@@ -75,7 +78,7 @@ class Twitter_scrapper():
     Waits for update bar until timeout (in seconds)
     """
     def wait4update(self, timeout=60):
-        
+
         try:
             wait = WebDriverWait(self.driver, timeout)
             clickNewTweets = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[contains(@class,'new-tweets-bar js-new-tweets-bar')]")))
@@ -116,7 +119,7 @@ class Twitter_scrapper():
     Returns False on error.
     """
     def consume(self, timeout=60):
-        
+
         if timeout<60:
             self.log.info('Consuming for %d minutes'%timeout, extra=self.log_extra)
         else:
@@ -160,7 +163,7 @@ class Twitter_scrapper():
         t = time.time()
 
         while (time.time()-t)/60 < timeout:
-            
+
             if self.wait4update():
                 self.process_page()
             time.sleep(60*refresh)
@@ -172,7 +175,7 @@ class Twitter_scrapper():
     The function adds photos(s) to tweet.
     """
     def _add_photo(self, pic_path):
-        
+
         if pic_path:
             if os.path.exists(pic_path):
                 self.log.info('Adding photo:\t'+pic_path, extra=self.log_extra)
@@ -189,12 +192,12 @@ class Twitter_scrapper():
         Twitter_scrapper.tweets_number = Twitter_scrapper.tweets_number + count
         self.log.info('tweet number: %d\t'%Twitter_scrapper.tweets_number, extra=self.log_extra)
 
-    
+
     """
     The function posts a tweet.
     """
     def make_tweet(self, tw_text, pic_path=''):
-        
+
         try:
             wait = WebDriverWait(self.driver, 2)
             tweetTextBox = wait.until(EC.element_to_be_clickable((By.ID, "tweet-box-home-timeline")))

@@ -1,0 +1,6 @@
+"0.2"
+folloeing_user, Twitter_scrapper_for_follower:
+  Added:
+  "import sys
+  sys.path.insert(0, '/home/cyber/ubuntu firefox twitter follower/infomedia-crawler/CrawlerAPInew/ImportFiles')"
+  to handle with "No module named FollowerImports" Error
