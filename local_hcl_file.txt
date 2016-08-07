@@ -1,4 +1,4 @@
-Os_name = "windows"			/*	windows , OSx , Linux , Android	 */
+Os_name = "Linux"			/*	windows , OSx , Linux , Android	 */
 Browser_name = "chrome"  	/*	chrome , ff , ie , firefox , Safri	 */
 DB_path = "c:\twitterdb\vpn"	/*	c:\twitterdb ,  /home/cyber/infoMediaGenericAPI/follower-user/twitter-DB/twitterdb 	*/
 
