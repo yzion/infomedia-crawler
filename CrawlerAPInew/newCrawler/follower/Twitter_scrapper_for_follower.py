@@ -8,13 +8,11 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import logging
 import logging.handlers
 import os
+import FollowerImports as FI
 # import platform
 # import subprocess
 # import random FollowerImports
 
-import sys
-sys.path.insert(0, '/home/cyber/ubuntu firefox twitter follower/infomedia-crawler/CrawlerAPInew/ImportFiles')
-import FollowerImports as FI
 LOGGER_FORMAT_START = '%(asctime)-15s\t%(levelno)d\t%(levelname)s\t'
 
 

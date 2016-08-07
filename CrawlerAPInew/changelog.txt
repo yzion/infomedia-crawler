@@ -1,3 +1,21 @@
+"0.3"
+local_hcl_file:
+    Moved from "infomedia-crawler\CrawlerAPInew\ImportFiles\" into "infomedia-crawler\"
+
+Added ".ignore" file
+
+.ignore:
+    Added "local_hcl_file" to avoid next updates
+
+FollowerImports:
+    Code improvements
+
+Twitter_scrapper_for_follower:
+    Remove unnecessary imports
+
+following_user:
+    Code improvements
+
 "0.2"
 folloeing_user, Twitter_scrapper_for_follower:
   Added:

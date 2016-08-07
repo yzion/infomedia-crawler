@@ -9,7 +9,7 @@ from Twitter_scrapper_for_twitting import Twitter_scrapper
 import random
 
 from ImportFiles import TwitterImports as TI
-from boto.dynamodb.condition import NULL
+#from boto.dynamodb.condition import NULL
 
 LOGGER_FORMAT_START = '%(asctime)-15s\t%(levelno)d\t%(levelname)s\t'
 
@@ -94,7 +94,7 @@ time_between_tweets = time between an individual Tweets (in seconds)
 num_of_set = after this number of tweets will be a break of "break_time" seconds.
 break_time = time to wait between set of tweets. by default "break_time"=60
 """
-def tweet_only_text(user_name, password, num_of_tweet, time_between_tweets, num_of_set, break_time = 60, pix_path = NULL):
+def tweet_only_text(user_name, password, num_of_tweet, time_between_tweets, num_of_set, break_time , pix_path):
     log_str, driver, tshark_proc = start_driver_and_pcap()
 
     try:
@@ -374,7 +374,7 @@ if __name__ == "__main__":
         elif(tweetRestrictions == 2000 and tweetType != "tweet_only_text"): 
             pix_path = path_list[2]
         else :
-            pix_path = NULL
+            pix_path = ""
         while i < (len(twitter_users)*4):
             username = twitter_users[i % len(twitter_users)]
             password = twitter_passwords[i % len(twitter_users)]

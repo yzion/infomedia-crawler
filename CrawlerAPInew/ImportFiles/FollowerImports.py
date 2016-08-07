@@ -2,13 +2,15 @@ import os
 from os.path import join
 import hcl
 import requests
+import sys
+
 
 """   loading local config file from local comp """
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-followersFolder = BASE_DIR+r"/newCrawler/follower"
-with open(join(followersFolder,"local_hcl_file.txt"),'r') as follower_local_hcl_file:
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+
+with open(join(BASE_DIR,"local_hcl_file.txt"),'r') as follower_local_hcl_file:
     follower_local_hcl_JsonFile = hcl.load(follower_local_hcl_file)
-  
+
 '''    ******     GLOBAL    FOLLOWER    FILE     ******   '''
 
 """    working online import settings file from benamika GitHub's account """

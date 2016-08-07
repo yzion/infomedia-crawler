@@ -11,12 +11,18 @@ import platform
 import subprocess
 import random
 import sys
-sys.path.insert(0, '/home/cyber/ubuntu firefox twitter follower/infomedia-crawler/CrawlerAPInew/ImportFiles')
+
+""" 07/08/16
+adding to path of platform the located file
+way around bugs. to import files
+"""
+local_folder = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))+os.sep+"ImportFiles"
+print local_folder
+sys.path.insert(0, local_folder)
 
 import FollowerImports as FI
 # import TwitterImports as TI
 from Twitter_scrapper_for_follower import Twitter_scrapper
-
 
 
 LOGGER_FORMAT_START = '%(asctime)-15s\t%(levelno)d\t%(levelname)s\t'
