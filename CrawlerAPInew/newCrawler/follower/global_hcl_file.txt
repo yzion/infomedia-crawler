@@ -1,0 +1,5 @@
+Run_details = {
+	check_new_tweets_every_X_minutes ="1"		/*	anny number : 1 to inf, random	*/
+	runTimeMinutes = 55
+	
+}
