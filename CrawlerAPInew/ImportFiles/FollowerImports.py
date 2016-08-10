@@ -13,16 +13,15 @@ with open(join(BASE_DIR,"local_hcl_file.txt"),'r') as follower_local_hcl_file:
 
 '''    ******     GLOBAL    FOLLOWER    FILE     ******   '''
 
-"""    working online import settings file from benamika GitHub's account """
-r = requests.get('https://raw.githubusercontent.com/benamika/infomedia-crawler/dev/CrawlerAPInew/newCrawler/follower/global_hcl_file.txt?token=AGd2fw5-zdImSSxGDVBK-Dt1T9n68_Owks5W7o84wA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
+# """    working online import settings file from benamika GitHub's account """
+r = requests.get('https://raw.githubusercontent.com/yzion/infomedia-crawler/dev/CrawlerAPInew/newCrawler/follower/global_hcl_file.txt?token=AG6lb4JimkeElmqI5OTZwKNiq51yKaloks5XtDOJwA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
 follower_global_hcl_JsonFile = hcl.api.loads(r.text )
 
 """    working offline on local comp """
-# with open(join(BASE_DIR,"CrawlerAPInew/newCrawler/follower/global_hcl_file.txt"),'r') as follower_global_hcl_file:
-#    follower_global_hcl_JsonFile = hcl.load(follower_global_hcl_file)
+with open(join(BASE_DIR,"CrawlerAPInew/newCrawler/follower/global_hcl_file.txt"),'r') as follower_global_hcl_file:
+   follower_global_hcl_JsonFile = hcl.load(follower_global_hcl_file)
 
-#with open(join(followersFolder,"global_hcl_file.txt"),'r') as follower_global_hcl_file:
-#    follower_global_hcl_JsonFile = hcl.load(follower_global_hcl_file)
+
 
 '''        API AREA    '''
     
