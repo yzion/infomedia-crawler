@@ -1,5 +1,6 @@
 Run_details = {
 	check_new_tweets_every_X_minutes ="1"		/*	anny number : 1 to inf, random	*/
 	runTimeMinutes = 55
+	cipherString = "--cipher-suite-blacklist=0xc02b,0xc02f,0xc02c,0xc030" /* Change the numbers depending on running time    */
 	
 }

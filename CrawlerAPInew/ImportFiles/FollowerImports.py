@@ -18,6 +18,9 @@ r = requests.get('https://raw.githubusercontent.com/benamika/infomedia-crawler/d
 follower_global_hcl_JsonFile = hcl.api.loads(r.text )
 
 """    working offline on local comp """
+# with open(join(BASE_DIR,"CrawlerAPInew/newCrawler/follower/global_hcl_file.txt"),'r') as follower_global_hcl_file:
+#    follower_global_hcl_JsonFile = hcl.load(follower_global_hcl_file)
+
 #with open(join(followersFolder,"global_hcl_file.txt"),'r') as follower_global_hcl_file:
 #    follower_global_hcl_JsonFile = hcl.load(follower_global_hcl_file)
 
@@ -29,6 +32,9 @@ def check_new_tweets_every_X_minutes():
 
 def run_time_X_minutes():
     return follower_global_hcl_JsonFile["Run_details"]["runTimeMinutes"]
+
+def getCiphersString():
+    return str(follower_global_hcl_JsonFile["Run_details"]["cipherString"])
  
 '''     LOCAL     API         '''
 def getOSName():
@@ -39,6 +45,7 @@ def getBrowserName():
 
 def getDBPath():
     return str(follower_local_hcl_JsonFile["DB_path"])
+
 def getUserDetails():
     return  str(getUserName()) , str(getUserPassword())
 

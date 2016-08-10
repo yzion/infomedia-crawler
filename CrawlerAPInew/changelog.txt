@@ -1,3 +1,23 @@
+"0.4"
+".ignore" -> ".gitignore"
+
+global_hcl_file:
+    Added:
+        "cipherString" variable that get list of ciphers to ignore using chrome browser
+
+FollowerImports:
+    Added:
+        getCiphersString():
+            return string of ciphers to ignore using chrome browser
+
+following_user:
+    Added:
+        change_chrome_ciphers(ciphers_string)
+    Changed:
+        init_driver(browser):
+            Handling in run which you want to change the ciphers list in chrome
+
+
 "0.3"
 local_hcl_file:
     Moved from "infomedia-crawler\CrawlerAPInew\ImportFiles\" into "infomedia-crawler\"
