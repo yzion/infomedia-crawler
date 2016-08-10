@@ -18,8 +18,8 @@ r = requests.get('https://raw.githubusercontent.com/yzion/infomedia-crawler/dev/
 follower_global_hcl_JsonFile = hcl.api.loads(r.text )
 
 """    working offline on local comp """
-with open(join(BASE_DIR,"CrawlerAPInew/newCrawler/follower/global_hcl_file.txt"),'r') as follower_global_hcl_file:
-   follower_global_hcl_JsonFile = hcl.load(follower_global_hcl_file)
+# with open(join(BASE_DIR,"CrawlerAPInew/newCrawler/follower/global_hcl_file.txt"),'r') as follower_global_hcl_file:
+#    follower_global_hcl_JsonFile = hcl.load(follower_global_hcl_file)
 
 
 
