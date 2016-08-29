@@ -14,12 +14,13 @@ with open(join(BASE_DIR,"local_hcl_file.txt"),'r') as follower_local_hcl_file:
 '''    ******     GLOBAL    FOLLOWER    FILE     ******   '''
 
 """    working online import settings file from benamika GitHub's account """
-r = requests.get('https://raw.githubusercontent.com/benamika/infomedia-crawler/dev/CrawlerAPInew/newCrawler/follower/global_hcl_file.txt?token=AGd2fw5-zdImSSxGDVBK-Dt1T9n68_Owks5W7o84wA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
-follower_global_hcl_JsonFile = hcl.api.loads(r.text )
+# r = requests.get('https://raw.githubusercontent.com/benamika/infomedia-crawler/dev/CrawlerAPInew/newCrawler/follower/global_hcl_file.txt?token=AGd2fw5-zdImSSxGDVBK-Dt1T9n68_Owks5W7o84wA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
+# follower_global_hcl_JsonFile = hcl.api.loads(r.text )
 
 """    working offline on local comp """
-#with open(join(followersFolder,"global_hcl_file.txt"),'r') as follower_global_hcl_file:
-#    follower_global_hcl_JsonFile = hcl.load(follower_global_hcl_file)
+followersFolder = os.path.dirname(os.path.dirname(__file__)) +r"\newCrawler\follower" #TODO: fix to linux Mac etc
+with open(join(followersFolder,"global_hcl_file.txt"),'r') as follower_global_hcl_file:
+    follower_global_hcl_JsonFile = hcl.load(follower_global_hcl_file)
 
 '''        API AREA    '''
     
@@ -29,7 +30,9 @@ def check_new_tweets_every_X_minutes():
 
 def run_time_X_minutes():
     return follower_global_hcl_JsonFile["Run_details"]["runTimeMinutes"]
- 
+
+def get_follow_type():
+    return follower_global_hcl_JsonFile["Run_details"]["func_name"]
 '''     LOCAL     API         '''
 def getOSName():
     return  follower_local_hcl_JsonFile["Os_name"]

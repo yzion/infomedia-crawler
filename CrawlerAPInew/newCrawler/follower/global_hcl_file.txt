@@ -1,5 +1,7 @@
 Run_details = {
-	check_new_tweets_every_X_minutes ="1"		/*	anny number : 1 to inf, random	*/
+	check_new_tweets_every_X_minutes ="1"		/*	any number : 1 to inf, random	*/
 	runTimeMinutes = 55
 	
+	
+	func_name = "follows_and_captures_Tweets_parts" /*follows_and_captures_Tweets_complete || follows_and_captures_Tweets_parts */
 }

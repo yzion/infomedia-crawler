@@ -11,7 +11,7 @@ import platform
 import subprocess
 import random
 import sys
-
+import FollowerImports as FI
 """ 07/08/16
 adding to path of platform the located file
 way around bugs. to import files
@@ -20,7 +20,8 @@ local_folder = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))+os.se
 print local_folder
 sys.path.insert(0, local_folder)
 
-import FollowerImports as FI
+globalCountOfPcap = 0
+
 # import TwitterImports as TI
 from Twitter_scrapper_for_follower import Twitter_scrapper
 
@@ -91,7 +92,7 @@ follow and captures Tweets
 Follows on updates on twitter for "timeout" minutes
 timeout = time to capture in minutes. by default "timeout" = 60.
 """
-def follows_and_captures_Tweets(timeout = 60):
+def follows_and_captures_Tweets_complete(timeout = 60):
     log_str, driver, tshark_proc = start_driver_and_pcap()
     try:
         # login to Twitter
@@ -107,6 +108,35 @@ def follows_and_captures_Tweets(timeout = 60):
     finally:    # do cleaning anyway
         end_runing_func(tshark_proc,driver,tw)
 
+def follows_and_captures_Tweets_parts(timeout = 60):
+    
+    browser = FI.getBrowserName()
+    db_path =  FI.getDBPath()
+    log_str = create_log_name(browser, db_path)
+    log_str_by_time = log_str
+    while True: # TODO: fix to reasonable amount of time
+        
+        # get Web Driver
+        driver = init_driver(browser)
+        
+        try:
+           
+            # login to Twitter
+            tw = Twitter_scrapper(driver, log_str + '.tsv')
+            
+            if not tw.login(FI.getUserName() , FI.getUserPassword()):
+                print 'Logging to Twitter account failed'
+                return
+            
+           
+            # get TShark recording
+            tshark_proc = createPcap(log_str_by_time +  "_pcap_count_"+str(globalCountOfPcap) + '.pcap')
+            time.sleep(5)
+            tw.consume(timeout)
+           
+        finally:    # do cleaning anyway
+            end_runing_func(tshark_proc,driver,tw)
+            globalCountOfPcap++
 """
 follow and captures Tweets by time
 Follows on updates on twitter for "timeout" minutes
@@ -137,8 +167,15 @@ if __name__ == "__main__":
 
     runTimeMinutes = FI.run_time_X_minutes()
     checkNewTweetsInXTime = FI.check_new_tweets_every_X_minutes()
-
-#     for i in range(2):
-    follows_and_captures_Tweets(60*runTimeMinutes)
+    followType = FI.get_follow_type()
+    
+    possibles = globals().copy()
+    possibles.update(locals())
+    method = possibles.get(followType)
+    if not method:
+        raise NotImplementedError("Method %s not implemented" % followType)
+    
+    # follows_and_captures_Tweets_complete(60*runTimeMinutes)
+    method(60*runTimeMinutes)
 #     refresh_time = 30
 #     follows_and_captures_Tweets_by_time(runTimeMinutes, refresh_time)
