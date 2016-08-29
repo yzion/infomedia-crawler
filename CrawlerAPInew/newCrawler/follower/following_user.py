@@ -22,7 +22,11 @@ print local_folder
 sys.path.insert(0, local_folder)
 
 globalCountOfPcap = 0
+<<<<<<< 9c8d831b8fc198ef3c488cf8c353ad009a57bf03
 import FollowerImports as FI
+=======
+
+>>>>>>> partly sepereted functoins of follower
 # import TwitterImports as TI
 from Twitter_scrapper_for_follower import Twitter_scrapper
 
@@ -127,6 +131,7 @@ def follows_and_captures_Tweets_complete(timeout = 60):
     finally:    # do cleaning anyway
         end_runing_func(tshark_proc,driver,tw)
 
+<<<<<<< 9c8d831b8fc198ef3c488cf8c353ad009a57bf03
 
 def follows_and_captures_Tweets_pcap_first(timeout = 60):
    
@@ -162,13 +167,20 @@ def follows_and_captures_Tweets_pcap_first(timeout = 60):
             globalCountOfPcapPP() 
             
 def follows_and_captures_Tweets_web_first(timeout = 60):
+=======
+def follows_and_captures_Tweets_parts(timeout = 60):
+>>>>>>> partly sepereted functoins of follower
     
     browser = FI.getBrowserName()
     db_path =  FI.getDBPath()
     log_str = create_log_name(browser, db_path)
     log_str_by_time = log_str
+<<<<<<< 9c8d831b8fc198ef3c488cf8c353ad009a57bf03
     t = time.time()
     while (time.time()-t)/60 < timeout: 
+=======
+    while True: # TODO: fix to reasonable amount of time
+>>>>>>> partly sepereted functoins of follower
         
         # get Web Driver
         driver = init_driver(browser)
@@ -182,15 +194,25 @@ def follows_and_captures_Tweets_web_first(timeout = 60):
                 print 'Logging to Twitter account failed'
                 return
             
+<<<<<<< 9c8d831b8fc198ef3c488cf8c353ad009a57bf03
             
             # get TShark recording
             tshark_proc = createPcap(log_str_by_time +"_web_first_" +  "_pcap_count_"+str(globalCountOfPcap) + '.pcap')
+=======
+           
+            # get TShark recording
+            tshark_proc = createPcap(log_str_by_time +  "_pcap_count_"+str(globalCountOfPcap) + '.pcap')
+>>>>>>> partly sepereted functoins of follower
             time.sleep(5)
             tw.consume(timeout)
            
         finally:    # do cleaning anyway
             end_runing_func(tshark_proc,driver,tw)
+<<<<<<< 9c8d831b8fc198ef3c488cf8c353ad009a57bf03
             globalCountOfPcapPP() 
+=======
+            globalCountOfPcap++
+>>>>>>> partly sepereted functoins of follower
 """
 follow and captures Tweets by time
 Follows on updates on twitter for "timeout" minutes
@@ -228,7 +250,10 @@ if __name__ == "__main__":
     possibles = globals().copy()
     possibles.update(locals())
     method = possibles.get(followType)
+<<<<<<< 9c8d831b8fc198ef3c488cf8c353ad009a57bf03
     #global globalCountOfPcap
+=======
+>>>>>>> partly sepereted functoins of follower
     if not method:
         raise NotImplementedError("Method %s not implemented" % followType)
     
