@@ -3,5 +3,5 @@ Run_details = {
 	runTimeMinutes = 55
 	
 	
-	func_name = "follows_and_captures_Tweets_parts" /*follows_and_captures_Tweets_complete || follows_and_captures_Tweets_parts */
+	func_name = "follows_and_captures_Tweets_pcap_first" /*follows_and_captures_Tweets_complete || follows_and_captures_Tweets_web_first ||follows_and_captures_Tweets_pcap_first */
 }

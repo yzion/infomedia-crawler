@@ -33,6 +33,7 @@ def run_time_X_minutes():
 
 def get_follow_type():
     return follower_global_hcl_JsonFile["Run_details"]["func_name"]
+
 '''     LOCAL     API         '''
 def getOSName():
     return  follower_local_hcl_JsonFile["Os_name"]

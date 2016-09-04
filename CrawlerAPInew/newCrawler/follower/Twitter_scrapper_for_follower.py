@@ -138,7 +138,7 @@ class Twitter_scrapper():
                 if (time.time()-t)/60 > timeout:
                     break
             self.process_page()
-            if self.method == "follows_and_captures_Tweets_parts":
+            if self.method != "follows_and_captures_Tweets_complete":
                 break
             if Twitter_scrapper.tweets_number >= 1000:
                 Twitter_scrapper.tweets_number = 0

@@ -29,10 +29,11 @@ from Twitter_scrapper_for_follower import Twitter_scrapper
 LOGGER_FORMAT_START = '%(asctime)-15s\t%(levelno)d\t%(levelname)s\t'
 
 def createPcap(filename):
-
+    
     tsharkCall = [FI.getTsharkPath(),FI.getTsharkFileCommand(), FI.getTsharkFileType(), FI.getTsharkFilterCommand(), FI.getTsharkFilterType(), FI.getTsharkNCInterface(), FI.getTsharkNCInterfaceData(), FI.getTsharkWriteCommand(), str(filename)]
-
+    
     tsharkProc = subprocess.Popen(tsharkCall)
+    
     return tsharkProc
 
 
@@ -108,13 +109,48 @@ def follows_and_captures_Tweets_complete(timeout = 60):
     finally:    # do cleaning anyway
         end_runing_func(tshark_proc,driver,tw)
 
-def follows_and_captures_Tweets_parts(timeout = 60):
+
+def follows_and_captures_Tweets_pcap_first(timeout = 60):
+   
+    browser = FI.getBrowserName()
+    db_path =  FI.getDBPath()
+    log_str = create_log_name(browser, db_path)
+    log_str_by_time = log_str
+    t = time.time()
+    while (time.time()-t)/60 < timeout:      
+        # get Web Driver
+        try:
+            tshark_proc = createPcap(log_str_by_time +"_pcap_first_" +  "_pcap_count_"+str(globalCountOfPcap) + '.pcap')
+            time.sleep(5)
+        
+            driver = init_driver(browser)
+        
+       
+           
+            # login to Twitter
+            tw = Twitter_scrapper(driver, log_str + '.tsv')
+            
+            if not tw.login(FI.getUserName() , FI.getUserPassword()):
+                print 'Logging to Twitter account failed'
+                return
+            
+            
+            # get TShark recording
+            
+            tw.consume(timeout)
+           
+        finally:    # do cleaning anyway
+            end_runing_func(tshark_proc,driver,tw)
+            globalCountOfPcapPP() 
+            
+def follows_and_captures_Tweets_web_first(timeout = 60):
     
     browser = FI.getBrowserName()
     db_path =  FI.getDBPath()
     log_str = create_log_name(browser, db_path)
     log_str_by_time = log_str
-    while True: # TODO: fix to reasonable amount of time
+    t = time.time()
+    while (time.time()-t)/60 < timeout: 
         
         # get Web Driver
         driver = init_driver(browser)
@@ -128,22 +164,21 @@ def follows_and_captures_Tweets_parts(timeout = 60):
                 print 'Logging to Twitter account failed'
                 return
             
-           
+            
             # get TShark recording
-            tshark_proc = createPcap(log_str_by_time +  "_pcap_count_"+str(globalCountOfPcap) + '.pcap')
+            tshark_proc = createPcap(log_str_by_time +"_web_first_" +  "_pcap_count_"+str(globalCountOfPcap) + '.pcap')
             time.sleep(5)
             tw.consume(timeout)
            
         finally:    # do cleaning anyway
             end_runing_func(tshark_proc,driver,tw)
-            globalCountOfPcap++
+            globalCountOfPcapPP() 
 """
 follow and captures Tweets by time
 Follows on updates on twitter for "timeout" minutes
 make refresh after "refresh_time" minutes
 timeout = time to capture in minutes. by default "timeout" = 60.
 """
-
 def follows_and_captures_Tweets_by_time(timeout = 60, refrash_time = 30):
     log_str, driver, tshark_proc = start_driver_and_pcap()
 
@@ -160,11 +195,13 @@ def follows_and_captures_Tweets_by_time(timeout = 60, refrash_time = 30):
     finally:    # do cleaning anyway
         end_runing_func(tshark_proc,driver,tw)
 
-
+def globalCountOfPcapPP():
+    global globalCountOfPcap
+    globalCountOfPcap = globalCountOfPcap+1
 
 if __name__ == "__main__":
 
-
+   
     runTimeMinutes = FI.run_time_X_minutes()
     checkNewTweetsInXTime = FI.check_new_tweets_every_X_minutes()
     followType = FI.get_follow_type()
@@ -172,6 +209,7 @@ if __name__ == "__main__":
     possibles = globals().copy()
     possibles.update(locals())
     method = possibles.get(followType)
+    #global globalCountOfPcap
     if not method:
         raise NotImplementedError("Method %s not implemented" % followType)
     
