@@ -14,6 +14,7 @@ with open(join(BASE_DIR,"local_hcl_file.txt"),'r') as follower_local_hcl_file:
 '''    ******     GLOBAL    FOLLOWER    FILE     ******   '''
 
 """    working online import settings file from benamika GitHub's account """
+<<<<<<< HEAD
 r = requests.get('https://raw.githubusercontent.com/yzion/infomedia-crawler/dev/CrawlerAPInew/newCrawler/follower/global_hcl_file.txt?token=AG6lb4JimkeElmqI5OTZwKNiq51yKaloks5XtDOJwA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
 follower_global_hcl_JsonFile = hcl.api.loads(r.text )
 
@@ -31,9 +32,12 @@ def check_new_tweets_every_X_minutes():
 def run_time_X_minutes():
     return follower_global_hcl_JsonFile["Run_details"]["runTimeMinutes"]
 
+<<<<<<< HEAD
 def getCiphersString():
     return str(follower_global_hcl_JsonFile["Run_details"]["cipherString"])
 
+=======
+>>>>>>> master
 def get_follow_type():
     return follower_global_hcl_JsonFile["Run_details"]["func_name"]
 
