@@ -10,7 +10,7 @@ import requests
 #    twitter_global_hcl_JsonFile = hcl.load(twitter_global_hcl_file)
  
 """    working online import settings file from benamika GitHub's account """
-r = requests.get('https://raw.githubusercontent.com/benamika/infomedia-crawler/dev/CrawlerAPInew/newCrawler/twitter/global_hcl_file.txt?token=AGd2fy20HgZaKixDaxSJdT0o5GJB_K8Qks5W6xsKwA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
+r = requests.get('https://raw.githubusercontent.com/yzion/infomedia-crawler/dev/CrawlerAPInew/newCrawler/follower/global_hcl_file.txt?token=AG6lb4JimkeElmqI5OTZwKNiq51yKaloks5XtDOJwA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
 twitter_global_hcl_JsonFile = hcl.api.loads(r.text)
 
 '''

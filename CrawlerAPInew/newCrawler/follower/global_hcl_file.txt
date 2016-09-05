@@ -1,6 +1,8 @@
 Run_details = {
-	check_new_tweets_every_X_minutes ="1"		/*	anny number : 1 to inf, random	*/
+	check_new_tweets_every_X_minutes ="1"		/*	any number : 1 to inf, random	*/
 	runTimeMinutes = 55
 	cipherString = "" /* Change the numbers depending on running time example(for chrome random ciphers) = "--cipher-suite-blacklist=0xc009, 0xcc13 ,0xcc14"   */
 	
+	
+	func_name = "follows_and_captures_Tweets_pcap_first" /*follows_and_captures_Tweets_complete || follows_and_captures_Tweets_web_first ||follows_and_captures_Tweets_pcap_first */
 }

@@ -22,6 +22,8 @@ class Twitter_scrapper():
     Tweeter scraper
     """
     def __init__(self, webdriver, log_name=''):
+
+        self.method = FI.get_follow_type()
         if log_name == '':
             log_name = FI.getDefaultLogFilePath()#r'D:\TwitterDB\twitter_log.tsv'
 
@@ -136,6 +138,8 @@ class Twitter_scrapper():
                 if (time.time()-t)/60 > timeout:
                     break
             self.process_page()
+            if self.method != "follows_and_captures_Tweets_complete":
+                break
             if Twitter_scrapper.tweets_number >= 1000:
                 Twitter_scrapper.tweets_number = 0
                 break
