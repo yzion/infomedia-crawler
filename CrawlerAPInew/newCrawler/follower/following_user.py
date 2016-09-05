@@ -12,6 +12,7 @@ import platform
 import subprocess
 import random
 import sys
+
 """ 07/08/16
 adding to path of platform the located file
 way around bugs. to import files
@@ -21,11 +22,7 @@ print local_folder
 sys.path.insert(0, local_folder)
 
 globalCountOfPcap = 0
-<<<<<<< HEAD
 import FollowerImports as FI
-=======
-
->>>>>>> master
 # import TwitterImports as TI
 from Twitter_scrapper_for_follower import Twitter_scrapper
 
@@ -200,12 +197,8 @@ Follows on updates on twitter for "timeout" minutes
 make refresh after "refresh_time" minutes
 timeout = time to capture in minutes. by default "timeout" = 60.
 """
-<<<<<<< HEAD
 
 def follows_and_captures_Tweets_by_time(timeout=60, refrash_time=30):
-=======
-def follows_and_captures_Tweets_by_time(timeout = 60, refrash_time = 30):
->>>>>>> master
     log_str, driver, tshark_proc = start_driver_and_pcap()
 
     try:
@@ -218,13 +211,8 @@ def follows_and_captures_Tweets_by_time(timeout = 60, refrash_time = 30):
 
 
 
-<<<<<<< HEAD
     finally:  # do cleaning anyway
         end_runing_func(tshark_proc, driver, tw)
-=======
-    finally:    # do cleaning anyway
-        end_runing_func(tshark_proc,driver,tw)
->>>>>>> master
 
 def globalCountOfPcapPP():
     global globalCountOfPcap
