@@ -22,15 +22,11 @@ class Twitter_scrapper():
     Tweeter scraper
     """
     def __init__(self, webdriver, log_name=''):
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> master
         self.method = FI.get_follow_type()
         if log_name == '':
             log_name = FI.getDefaultLogFilePath()#r'D:\TwitterDB\twitter_log.tsv'
-        
+
         self.driver = webdriver
         self.driver.implicitly_wait(7) # seconds
         self.log = logging.getLogger('twitter')
