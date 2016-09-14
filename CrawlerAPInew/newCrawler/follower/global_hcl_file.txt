@@ -4,5 +4,5 @@ Run_details = {
 	cipherString = "" /* Change the numbers depending on running time example(for chrome random ciphers) = "--cipher-suite-blacklist=0xc009, 0xcc13 ,0xcc14"   */
 	
 	                                                       /*           R                       ||                  SNL                  ||                SWL         */
-	func_name = "follows_and_captures_Tweets_pcap_first" /*follows_and_captures_Tweets_complete || follows_and_captures_Tweets_web_first ||follows_and_captures_Tweets_pcap_first */
+	func_name = "follows_and_captures_Tweets_web_first" /*follows_and_captures_Tweets_complete || follows_and_captures_Tweets_web_first ||follows_and_captures_Tweets_pcap_first */
 }
