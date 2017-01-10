@@ -1,0 +1,27 @@
+Os_name = "Linux"			/*	windows , OSx , Linux , Android	 */
+Browser_name = "chrome"  	/*	chrome , ff , ie , firefox , Safri	 */
+DB_path = "/home/jony/MEGA/InfoMedia/Infomedia_Code_Project/follower-user/twitter-DB/twitterdb"	/*	c:\twitterdb ,  /home/cyber/infoMediaGenericAPI/follower-user/twitter-DB/twitterdb 	*/
+
+
+//USER DETAILS
+User_details = {
+    userName = "" /* Add user name */
+    password = "" /* Add password */
+}
+
+Tshark_parameters = {
+  														/*					windows			****** 			 linux			*/
+	Tshark_path = "/usr/bin/tshark" 	/* C:\Program Files\Wireshark\tshark.exe ****** /usr/bin/tshark  */
+	file_command = "-F"
+	file_type = "pcap"
+	filter_command = "-f"
+	filter_type = "tcp port 443"
+	NC_interface = "-i"
+	NC_interface_data = "1" 				/* 			1 				******				2 					*/
+	write_file_type = "-w"
+}
+
+Log_settings = {
+	logName = "/home/jony/MEGA/InfoMedia/Infomedia_Code_Project/follower-user/default-twitter-logs/twitter_log.tsv"  /*	D:\TwitterDB\twitter_log.tsv, 	/home/cyber/infoMediaGenericAPI/follower-user/default-twitter-logs/twitter_log.tsv	*/
+}
+
