@@ -1,15 +1,15 @@
 
 Log_settings = {
-	logName = "/home/cyber/infoMediaGenericAPI/twitting-user/default-twitter-logs/twitter_log.tsv"  
-				/*	D:\TwitterDB\twitter_log.tsv		******	/home/cyber/infoMediaGenericAPI/twitting-user/default-twitter-logs/twitter_log.tsv	*/
+	logName = "C:\TwitterDB\twitter_log.tsv"
+				/*	D:\TwitterDB\twitter_log.tsv		******	/home/cyber/infoMediaGenericAPI/twitting-user/default-twitter-logs/twitter_log.tsv ****** C:\TwitterDB\twitter_log.tsv	*/
 }
 Pictures_path = {
-	P200 = "/home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB/diff_pic/200 200"  
-				/* 						 *****	 /home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB/diff_pic/200 200 	*/
-	P1000 = "home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB/diff_pic/1000 1000"  
-				/*  						***** 	/home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB/diff_pic/1000 1000	 */
-	P2000 = "home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB/diff_pic/2000 2000"  
-				/* 						 ***** 	/home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB/diff_pic/2000 2000 	*/
+	P200 = "C:\twitterdb\diff_pic\200 200"
+				/* 						 *****	 /home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB/diff_pic/200 200 ****** C:\twitterdb\diff_pic\200 200	*/
+	P1000 = "C:\twitterdb\diff_pic\1000 1000"
+				/*  						***** 	/home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB/diff_pic/1000 1000	****** C:\twitterdb\diff_pic\1000 1000 */
+	P2000 = "C:\twitterdb\diff_pic\2000 2000"
+				/* 						 ***** 	/home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB/diff_pic/2000 2000 ****** C:\twitterdb\diff_pic\2000 2000	*/
 }
 User_details = {
 	userName0 = "mamecyber"
@@ -63,8 +63,8 @@ User_details = {
 }
 
 Run_details = {
-	type_of_tweet ="tweet_only_text"	/*			tweet_only_text , tweet_only_pic , tweet_pic_with_text , random_tweet			*/
-	type_restriction= 2000			/*	 0  - for text, 1 - for all pics, 200  - for 200x200 ; 1000 - for 1000x1000 ; 2000 - for 2000x2000	*/
+	type_of_tweet ="tweet_only_pic"	/*			tweet_only_text , tweet_only_pic , tweet_pic_with_text , random_tweet			*/
+	type_restriction= 200			/*	 0  - for text, 1 - for all pics, 200  - for 200x200 ; 1000 - for 1000x1000 ; 2000 - for 2000x2000	*/
 	tweet_parameters ={
 		"num_of_all_tweets" = 200
 		"num_of_tweet" = 200
@@ -81,7 +81,7 @@ Browser_name = "chrome"  			/*					chrome , ff , ie , firefox , Safri					*/
 
 Tshark_parameters = {
    						/*					windows			****** 			 linux			*/
-	Tshark_path = "/usr/bin/tshark" 	/* C:\Program Files\Wireshark\tshark.exe 			****** 			/usr/bin/tshark  	*/
+	Tshark_path = "C:\Program Files (x86)\Wireshark\tshark.exe " 	/* C:\Program Files (x86)\Wireshark\tshark.exe   ******     C:\Program Files\Wireshark\tshark.exe 		****** 			/usr/bin/tshark  	*/
 	file_command = "-F"
 	file_type = "pcap"
 	filter_command = "-f"
@@ -91,6 +91,6 @@ Tshark_parameters = {
 	write_file_type = "-w"
 }
 
-Os_name = "Linux" 			/*	windows , OSx , Linux , Android	 */ 
+Os_name = "windows" 			/*	windows , OSx , Linux , Android	 */
 
-DB_path = "/home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB"	/*	c:\twitterdb , /home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB 	*/
+DB_path = "c:\twitterdb\test"	/*	c:\twitterdb , /home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB 	*/

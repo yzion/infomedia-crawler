@@ -1,3 +1,47 @@
+0.7
+
+    infomedia-crawler:
+        - Added example of "local_hcl_file.txt" named "local_hcl_file_example.txt"
+
+        /CrawlerAPInew:
+
+            - Added new package for all help functions called "utils"
+
+            /ImportFiles/TwitterImports.py:
+                Change from "working online" to "working offline" (on the hcl file)
+
+            /newCrawler:
+                /follower/following_user.py:
+                    def create_log_name(browser_str, root_path):
+                        Update the function:
+                            Get browser name and root path
+                            Create (if not exist) new folder for every new run
+                            The path format is: "OS NAME AND VERSION_DATE__TIME"
+                            Genarate new log/pcap name:
+                            The file name format: "OS NAME AND VERSION_DATE__TIME"
+                            Return the new run path + new file name as a string
+
+                /twitter/twitting_user.py:
+                    def create_log_name(browser_str, root_path):
+                        Update the function:
+                            Get browser name and root path
+                            Create (if not exist) new folder for every new run
+                            The path format is: "OS NAME AND VERSION_DATE__TIME"
+                            Genarate new log/pcap name:
+                            The file name format: "OS NAME AND VERSION_DATE__TIME"
+                            Return the new run path + new file name as a string
+
+
+            /utils:
+                - Added new py file for get all user information called "user_info.py"
+                /user_info.py:
+                    - Added functions:
+                        get_os_name, get_os_version
+
+
+
+
+
 0.6.1
 Change running to "follows_and_captures_Tweets_complete"
 
