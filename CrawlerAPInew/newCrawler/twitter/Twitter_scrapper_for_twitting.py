@@ -160,7 +160,7 @@ class Twitter_scrapper():
                 tweetPic = self.driver.find_elements(By.XPATH, "//*[contains(@class,'file-input')]")[1]
                 #tweetPic.click() # clicking invokes file selection dialog window
                 tweetPic.send_keys(pic_path)
-                time.sleep(0.5)
+                time.sleep(2)
             else:
                 self.log.warn('Photo file does not exist : %s'%pic_path, extra=self.log_extra)
 
@@ -198,7 +198,7 @@ class Twitter_scrapper():
             wait_timeout = 90  # sec
             cnt = wait_timeout*10
             while cnt>0:
-                if not sendTweet.is_displayed():
+                if not sendTweet.is_enabled():
                     self.tweets_counter()
                     self.log.info('$$ Posted! (after %.1f sec)'%(wait_timeout-cnt/10.0), extra=self.log_extra)
                     break

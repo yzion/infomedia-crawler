@@ -1,3 +1,9 @@
+0.7.1
+
+    infomedia-crawler/CrawlerAPInew/newCrawler/twitter/Twitter_scrapper_for_twitting.py:
+        def make_tweet(self, tw_text, pic_path=''):
+            bug fixed- changed from send_tweet.is_displayed() to sendTweet.is_enabled() because tweeter updated the HTML
+
 0.7
 
     infomedia-crawler:
