@@ -1,3 +1,17 @@
+0.7.2
+
+    /CrawlerAPInew/newCrawler:
+        /follower/following_user.py:
+            def create_log_name(browser_str, root_path):
+                Update the function:
+                    Added "method_name" to "log_name"
+
+        /twitter/twitting_user.py:
+            def create_log_name(browser_str, root_path):
+                Update the function:
+                    Added "method_name" to "log_name"
+
+
 0.7.1
 
     infomedia-crawler/CrawlerAPInew/newCrawler/twitter/Twitter_scrapper_for_twitting.py:

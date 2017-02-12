@@ -55,13 +55,13 @@ class Twitter_scrapper():
             username_element = self.driver.find_elements(By.XPATH, "//input[contains(@name,'session[username_or_email]')]")[1]
             #username_element = self.driver.find_element_by_class_name("text-input email-input")
             username_element.send_keys(username)
-            time.sleep(0.7)
+            time.sleep(2)
             password_element = self.driver.find_elements(By.XPATH, "//input[contains(@name,'session[password]')]")[1]
             password_element.send_keys(passwd)
-            time.sleep(0.3)
+            time.sleep(3)
             btn = self.driver.find_elements(By.XPATH, "//button[contains(@class,'submit btn primary-btn')]")[0]
             btn.click()
-            time.sleep(5)
+            time.sleep(1)
             if 'login/error?' in self.driver.current_url:
                 self.log.warn('Login failed', extra=self.log_extra)
                 return False

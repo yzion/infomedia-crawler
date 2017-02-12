@@ -82,10 +82,10 @@ def create_log_name(browser_str, root_path):
 
     os_name = us.get_os_name()
     os_version = us.get_os_version(os_name)
-
+    run_method = TI.getTweetType()
     # host_name = platform.node()
 
-    run_path = root_path + os.sep + os_name + os_version + '_' + time_str + os.sep
+    run_path = root_path + os.sep + os_name + os_version + '_' + run_method + '_' + time_str + os.sep
     if not os.path.exists(run_path):
         os.makedirs(run_path)
     return run_path + os_name + '_' + browser_str + "_" + time_str
