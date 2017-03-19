@@ -1,3 +1,19 @@
+0.8
+    highlights:
+        Mergging two scrappers into one
+
+    /infomedia-crawler/CrawlerAPInew/newCrawler
+        /twitter/twitting_user.py:
+            Update the code for working with the new scrapper
+
+        /follower/following_user.py
+            Update the code for working with the new scrapper
+
+        Added new file
+        /scrapper.py:
+            this file was create by mergging both "Twitter_scrapper_for_follower"
+            and "Twitter_scrapper_for_twitting"
+
 0.7
 
     infomedia-crawler:

@@ -1,14 +1,14 @@
 
 Log_settings = {
-	logName = "C:\TwitterDB\twitter_log.tsv"
+	logName = "/home/jony/PycharmProjects/test_twitter/twitter_log.tsv"
 				/*	D:\TwitterDB\twitter_log.tsv		******	/home/cyber/infoMediaGenericAPI/twitting-user/default-twitter-logs/twitter_log.tsv ****** C:\TwitterDB\twitter_log.tsv	*/
 }
 Pictures_path = {
-	P200 = "C:\twitterdb\diff_pic\200 200"
+	P200 = "/home/jony/PycharmProjects/test_pic/200 200"
 				/* 						 *****	 /home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB/diff_pic/200 200 ****** C:\twitterdb\diff_pic\200 200	*/
-	P1000 = "C:\twitterdb\diff_pic\1000 1000"
+	P1000 = "/home/jony/PycharmProjects/test_pic/1000 1000"
 				/*  						***** 	/home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB/diff_pic/1000 1000	****** C:\twitterdb\diff_pic\1000 1000 */
-	P2000 = "C:\twitterdb\diff_pic\2000 2000"
+	P2000 = "/home/jony/PycharmProjects/test_pic/2000 2000"
 				/* 						 ***** 	/home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB/diff_pic/2000 2000 ****** C:\twitterdb\diff_pic\2000 2000	*/
 }
 User_details = {
@@ -80,8 +80,8 @@ Run_details = {
 Browser_name = "chrome"  			/*					chrome , ff , ie , firefox , Safri					*/
 
 Tshark_parameters = {
-   						/*					windows			****** 			 linux			*/
-	Tshark_path = "C:\Program Files (x86)\Wireshark\tshark.exe " 	/* C:\Program Files (x86)\Wireshark\tshark.exe   ******     C:\Program Files\Wireshark\tshark.exe 		****** 			/usr/bin/tshark  	*/
+   						                     /*					windows x86			******                          windows			****** 	                    		 linux			*/
+	Tshark_path = "/usr/bin/tshark" 	/* C:\Program Files (x86)\Wireshark\tshark.exe   ******     C:\Program Files\Wireshark\tshark.exe 		****** 			/usr/bin/tshark  	*/
 	file_command = "-F"
 	file_type = "pcap"
 	filter_command = "-f"
@@ -91,6 +91,6 @@ Tshark_parameters = {
 	write_file_type = "-w"
 }
 
-Os_name = "windows" 			/*	windows , OSx , Linux , Android	 */
+Os_name = "Linux" 			/*	windows , OSx , Linux , Android	 */
 
-DB_path = "c:\twitterdb\test"	/*	c:\twitterdb , /home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB 	*/
+DB_path = "/home/jony/PycharmProjects/test_twitter"	/*	c:\twitterdb , /home/cyber/infoMediaGenericAPI/twitting-user/twitter-DB 	*/

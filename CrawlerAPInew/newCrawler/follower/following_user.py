@@ -13,16 +13,19 @@ import subprocess
 import random
 import sys
 
+scrapper_path = os.path.dirname(os.path.dirname(__file__))
 utils_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) + os.sep + "utils"
 import_file_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) + os.sep + "ImportFiles"
-sys.path.insert(0, import_file_path)
+sys.path.insert(0, scrapper_path)
 sys.path.insert(0, utils_path)
+sys.path.insert(0, import_file_path)
+import user_info as us
 import FollowerImports as FI
 import user_info as us
 
 globalCountOfPcap = 0
 
-from Twitter_scrapper_for_follower import Twitter_scrapper
+from scrapper import Twitter_scrapper
 
 LOGGER_FORMAT_START = '%(asctime)-15s\t%(levelno)d\t%(levelname)s\t'
 

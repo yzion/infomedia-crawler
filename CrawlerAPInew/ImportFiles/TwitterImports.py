@@ -5,7 +5,7 @@ import requests
 
 """    working offline on local comp """
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-twitterFolder = BASE_DIR+r"\newCrawler\twitter"
+twitterFolder = BASE_DIR+ os.sep+ "newCrawler" +os.sep + "twitter"
 with open(join(twitterFolder,"global_hcl_file.txt"),'r') as twitter_global_hcl_file:
    twitter_global_hcl_JsonFile = hcl.load(twitter_global_hcl_file)
  

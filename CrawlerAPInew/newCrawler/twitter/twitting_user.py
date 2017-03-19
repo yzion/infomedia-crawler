@@ -7,14 +7,16 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 import sys
 
+scrapper_path = os.path.dirname(os.path.dirname(__file__))
 utils_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) + os.sep + "utils"
 import_file_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) + os.sep + "ImportFiles"
-sys.path.insert(0, import_file_path)
+sys.path.insert(0, scrapper_path)
 sys.path.insert(0, utils_path)
+sys.path.insert(0, import_file_path)
 import TwitterImports as TI
+import FollowerImports as FI
 import user_info as us
-
-from Twitter_scrapper_for_twitting import Twitter_scrapper
+from scrapper import Twitter_scrapper
 
 LOGGER_FORMAT_START = '%(asctime)-15s\t%(levelno)d\t%(levelname)s\t'
 
