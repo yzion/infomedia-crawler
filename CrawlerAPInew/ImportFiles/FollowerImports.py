@@ -13,7 +13,9 @@ with open(join(BASE_DIR,"local_hcl_file.txt"),'r') as follower_local_hcl_file:
 
 '''    ******     GLOBAL    FOLLOWER    FILE     ******   '''
 
+
 """    working online import settings file from benamika GitHub's account """
+
 r = requests.get('https://raw.githubusercontent.com/yzion/infomedia-crawler/dev/CrawlerAPInew/newCrawler/follower/global_hcl_file.txt?token=AG6lb4JimkeElmqI5OTZwKNiq51yKaloks5XtDOJwA%3D%3D' ,auth=('infomediaTeamCrawler', 'CrawlerTeam16'))
 follower_global_hcl_JsonFile = hcl.api.loads(r.text )
 
