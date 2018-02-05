@@ -1,2 +1,5 @@
 local_hcl_file.txt
 *.pyc
+/CrawlerAPInew/.metadata/
+/CrawlerAPInew/.pydevproject
+/CrawlerAPInew/.project

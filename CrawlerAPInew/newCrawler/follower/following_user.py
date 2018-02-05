@@ -13,17 +13,15 @@ import subprocess
 import random
 import sys
 
-""" 07/08/16
-adding to path of platform the located file
-way around bugs. to import files
-"""
-local_folder = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) + os.sep + "ImportFiles"
-print local_folder
-sys.path.insert(0, local_folder)
+utils_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) + os.sep + "utils"
+import_file_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__))) + os.sep + "ImportFiles"
+sys.path.insert(0, import_file_path)
+sys.path.insert(0, utils_path)
+import FollowerImports as FI
+import user_info as us
 
 globalCountOfPcap = 0
-import FollowerImports as FI
-# import TwitterImports as TI
+
 from Twitter_scrapper_for_follower import Twitter_scrapper
 
 LOGGER_FORMAT_START = '%(asctime)-15s\t%(levelno)d\t%(levelname)s\t'
@@ -67,15 +65,32 @@ def init_driver(browser):
             driver.wait = WebDriverWait(driver, 5)
     return driver
 
+"""
+Get browser name and root path
+Create (if not exist) new folder for every new run
+The path format is: "OS NAME AND VERSION_DATE__TIME"
+Genarate new log/pcap name:
+The file name format: "OS NAME AND VERSION_DATE__TIME"
+Return the new run path + new file name as a string
+"""
 def create_log_name(browser_str, root_path):
     time_str = time.strftime("%m-%d__%H_%M_%S")
 
-    if not os.path.exists(root_path):
-        os.makedirs(root_path)
+    # if not os.path.exists(root_path):
+    #     os.makedirs(root_path)
 
-    os_name = platform.system()[0]
-    host_name = platform.node()
-    return root_path + os.sep + os_name + '_' + host_name + '_' + browser_str + "_" + time_str
+    os_name = us.get_os_name()
+    os_version = us.get_os_version(os_name)
+    run_method = FI.get_follow_type()
+
+    # host_name = platform.node()
+
+    run_path = root_path + os.sep + os_name + os_version +'_' + run_method + '_' + time_str + os.sep
+    if not os.path.exists(run_path):
+        os.makedirs(run_path)
+    return run_path + os_name + os_version + '_' + browser_str + "_" + time_str
+    # return root_path + os.sep + os_name + '_' + host_name + '_' + browser_str + "_" + time_str
+
 
 """
 initialize and return log file, driver and tshark process
